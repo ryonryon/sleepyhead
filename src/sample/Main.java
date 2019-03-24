@@ -2,6 +2,7 @@ package sample;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -16,7 +17,9 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Main.stage = primaryStage;
-        changeView("firstScreen.fxml");
+        changeView("View/firstScreen.fxml");
+        primaryStage.setTitle("Welcome to the Sleepyhead App");
+        primaryStage.setResizable(false);
         Main.stage.show();
     }
 

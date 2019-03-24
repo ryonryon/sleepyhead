@@ -8,7 +8,7 @@ import sample.Main;
 public class firstScreenController {
     @FXML
     public void setAlarmClicked(ActionEvent actionEvent) {
-        new Main().changeView("setAlarmScreen.fxml");
+        new Main().changeView("View/setAlarmScreen.fxml");
     }
 
     @FXML
