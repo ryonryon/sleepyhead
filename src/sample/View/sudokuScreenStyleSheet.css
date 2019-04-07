@@ -1,0 +1,30 @@
+.button {
+    -fx-font-size: 15px;
+    -fx-pref-height: 45px;
+    -fx-pref-width: 45px;
+}
+
+.text-field{
+   -fx-font-size: 15px;
+   -fx-pref-height: 45px;
+   -fx-pref-width: 45px;
+   -fx-alignment: center;
+   -fx-padding: 5px;
+}
+
+.button-check {
+    -fx-padding: 5px;
+    -fx-pref-height: 15px;
+    -fx-pref-width: 120px;
+    -fx-background-color: #F5E8D5;
+}
+
+.error-label{
+   -fx-font-size: 15px;
+   -fx-text-fill: red;
+}
+
+.clear-label{
+   -fx-font-size: 20px;
+   -fx-text-fill: blue;
+}
