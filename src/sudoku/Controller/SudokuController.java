@@ -233,10 +233,11 @@ public class SudokuController implements Initializable {
         if (!errorList.isEmpty()) {
             Alert dialog = new Alert(Alert.AlertType.INFORMATION);
             dialog.setHeaderText(null);
+            dialog.setTitle("Something wrong");
             dialog.setContentText("Please check your answers \n" + errorStr);
             dialog.showAndWait();
         } else {
-            // TODO clear window and stop the alarm
+            // TODO display the "clear" and stop the alarm
         }
     }
 
