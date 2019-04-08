@@ -1,4 +1,4 @@
-package sample.Sudoku;
+package sudoku.Controller;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,14 +13,14 @@ public class SudokuField {
 
     public SudokuField() {
 
-        this.sudokuField = new ArrayList<Coordinate>();
+        this.sudokuField = new ArrayList<>();
 
         setRandomTemplate();
     }
 
     public boolean setNumber(int x, int y, int value) {
 
-        if(value < 0 && 9 < value) {
+        if(value < 0 || 9 < value) {
             return false;
         }
 
@@ -54,7 +54,7 @@ public class SudokuField {
         Random random = new Random();
         int fileNumber = random.nextInt(2);
         // TODO: change file name path
-        String fileName = "../sleepyhead/src/sample/Sudoku/Questions/question_" + fileNumber + ".csv";
+        String fileName = "../sleepyhead/src/sudoku/Controller/Questions/question_" + fileNumber + ".csv";
 
         int data[][] = null;
 

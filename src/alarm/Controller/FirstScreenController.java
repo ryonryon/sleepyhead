@@ -1,4 +1,4 @@
-package sample.Controller;
+package alarm.Controller;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -105,7 +105,7 @@ public class FirstScreenController implements Initializable, OnCompleteSettingAl
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Media media = new Media(new File("src/res/alarm.mp3").toURI().toASCIIString());
+        Media media = new Media(new File("src/alarm/sounds/alarm.mp3").toURI().toASCIIString());
         mediaPlayer = new MediaPlayer(media);
     }
 
