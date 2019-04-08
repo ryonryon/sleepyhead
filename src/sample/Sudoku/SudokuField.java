@@ -82,9 +82,9 @@ public class SudokuField {
         return this.sudokuField;
     }
 
-    public ArrayList<errorCoordinate> isCompetion() {
+    public ArrayList<errorCoordinate> isCompletion() {
 
-        ArrayList<errorCoordinate> errorList = new ArrayList<errorCoordinate>();
+        ArrayList<errorCoordinate> errorList = new ArrayList<>();
 
         int x1 = 0;
         int x2 = 0;
