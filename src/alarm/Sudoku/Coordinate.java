@@ -1,4 +1,4 @@
-package sample.Sudoku;
+package alarm.Sudoku;
 
 public class Coordinate {
 

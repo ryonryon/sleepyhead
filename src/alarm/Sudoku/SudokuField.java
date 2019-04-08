@@ -1,4 +1,4 @@
-package sample.Sudoku;
+package alarm.Sudoku;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -54,7 +54,7 @@ public class SudokuField {
         Random random = new Random();
         int fileNumber = random.nextInt(2);
         // TODO: change file name path
-        String fileName = "../sleepyhead/src/sample/Sudoku/Questions/question_" + fileNumber + ".csv";
+        String fileName = "../sleepyhead/src/alarm/Sudoku/Questions/question_" + fileNumber + ".csv";
 
         int data[][] = null;
 

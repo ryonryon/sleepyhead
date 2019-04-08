@@ -1,4 +1,4 @@
-package sample.Controller;
+package alarm.Controller;
 
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
