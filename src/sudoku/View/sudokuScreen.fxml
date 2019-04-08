@@ -299,7 +299,7 @@
                                 </Button>
                             </children>
                         </GridPane>
-                        <Button layoutX="35.0" layoutY="21.0" mnemonicParsing="false" onAction="#newGame" styleClass="button-check" text="New Game" />
+                        <!--<Button layoutX="35.0" layoutY="21.0" mnemonicParsing="false" onAction="#newGame" styleClass="button-check" text="New Game" />-->
                         <Button layoutX="35.0" layoutY="96.0" mnemonicParsing="false" onAction="#checkAnswers" styleClass="button-check" text="Check" />
                     </children>
                 </AnchorPane>
