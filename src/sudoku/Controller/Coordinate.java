@@ -1,4 +1,4 @@
-package alarm.Sudoku;
+package sudoku.Controller;
 
 public class Coordinate {
 

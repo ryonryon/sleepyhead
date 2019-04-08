@@ -1,4 +1,4 @@
-package alarm.Sudoku;
+package sudoku.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

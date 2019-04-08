@@ -18,7 +18,7 @@ public class GameSelectorController implements Initializable {
 
     public void playSudoku() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/sudokuScreen.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../../sudoku/View/sudokuScreen.fxml"));
             Parent parent = loader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(parent));
