@@ -105,7 +105,7 @@ public class FirstScreenController implements Initializable, OnCompleteSettingAl
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Media media = new Media(new File("src/res/alarm.mp3").toURI().toASCIIString());
+        Media media = new Media(new File("src/sample/sounds/alarm.mp3").toURI().toASCIIString());
         mediaPlayer = new MediaPlayer(media);
     }
 
