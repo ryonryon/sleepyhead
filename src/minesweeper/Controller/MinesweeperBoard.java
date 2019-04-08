@@ -34,7 +34,7 @@ public class MinesweeperBoard {
 
             for(int j = 0; j < this.mapHeight; j++) {
 
-                this.mineSweeperBoard.add(new Panel(i, j, Panel.BoxValue.Blank, 0));
+                this.mineSweeperBoard.add(new Panel(i, j, Panel.BoxValue.Blank));
             }
         }
     }
@@ -96,6 +96,7 @@ public class MinesweeperBoard {
     }
 
     private void arrartError() {
+        // TODO how do we manage Error?
     }
 
     private void gameOver() {
@@ -105,5 +106,13 @@ public class MinesweeperBoard {
         }
     }
 
+    public void putFlug(int x, int y) {
 
+        for (Panel panel: this.mineSweeperBoard) {
+
+            if(panel.getXCoordinate() == x && panel.getYCoordinate() == y) {
+                panel.setBoxStatus(Panel.BoxStatus.flagged);
+            }
+        }
+    }
 }

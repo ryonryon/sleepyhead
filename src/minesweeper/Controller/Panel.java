@@ -27,7 +27,7 @@ public class Panel {
         return boxValue;
     }
 
-    public Panel(int xCoordinate, int yCoordinate, BoxValue boxValue, int bomNumberAround) {
+    public Panel(int xCoordinate, int yCoordinate, BoxValue boxValue) {
 
         this.xCoordinate = xCoordinate;
         this.yCoordinate = yCoordinate;
