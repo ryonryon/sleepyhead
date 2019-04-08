@@ -7,18 +7,18 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-public class SudokuField {
+class SudokuField {
 
     private List<Coordinate> sudokuField;
 
-    public SudokuField() {
+    SudokuField() {
 
         this.sudokuField = new ArrayList<>();
 
         setRandomTemplate();
     }
 
-    public boolean setNumber(int x, int y, int value) {
+    boolean setNumber(int x, int y, int value) {
 
         if(value < 0 || 9 < value) {
             return false;
@@ -34,7 +34,7 @@ public class SudokuField {
         return true;
     }
 
-    public void setRandomTemplate(){
+    private void setRandomTemplate(){
 
         int data[][] = getSudokuQuestion();
 
@@ -49,7 +49,7 @@ public class SudokuField {
         }
     }
 
-    public int[][] getSudokuQuestion(){
+    private int[][] getSudokuQuestion(){
 
         Random random = new Random();
         int fileNumber = random.nextInt(2);
@@ -77,12 +77,12 @@ public class SudokuField {
         return data;
     }
 
-    public List<Coordinate> getSudokuField() {
+    List<Coordinate> getSudokuField() {
 
         return this.sudokuField;
     }
 
-    public ArrayList<errorCoordinate> isCompletion() {
+    ArrayList<errorCoordinate> isCompletion() {
 
         ArrayList<errorCoordinate> errorList = new ArrayList<>();
 
