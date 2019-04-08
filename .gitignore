@@ -33,3 +33,5 @@ hs_err_pid*
 
 # out dir
 out/
+
+.DS_Store
