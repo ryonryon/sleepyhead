@@ -1,4 +1,4 @@
-package sample.Controller;
+package minesweeper;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
