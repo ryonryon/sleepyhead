@@ -3,10 +3,7 @@ package sample.Sudoku;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Control;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
@@ -177,10 +174,6 @@ public class SudokuController implements Initializable {
     public TextField x9y8;
     @FXML
     public TextField x9y9;
-    @FXML
-    public Label resultLabel;
-    @FXML
-    public Label errorLabel;
 
     public SudokuField sudokuField;
     private TextField[][] grid;
@@ -198,7 +191,7 @@ public class SudokuController implements Initializable {
     @FXML
     public void newGame() {
 
-        SudokuField sudokuField = new SudokuField();
+        sudokuField = new SudokuField();
 
         grid = new TextField [][]{
                 {x1y1, x1y2, x1y3, x1y4, x1y5, x1y6, x1y7, x1y8, x1y9},
@@ -231,15 +224,17 @@ public class SudokuController implements Initializable {
         sudokuField.getSudokuField();
         ArrayList<SudokuField.errorCoordinate> errorList = sudokuField.isCompletion();
 
+        String errorStr = "";
+
         for (SudokuField.errorCoordinate error : errorList) {
-            System.out.println(error);
+            errorStr += error + " ";
         }
 
-        // reset error labels
-        errorLabel.setText("");
-
         if (!errorList.isEmpty()) {
-            errorLabel.setText("Error!!");
+            Alert dialog = new Alert(Alert.AlertType.INFORMATION);
+            dialog.setHeaderText(null);
+            dialog.setContentText("Please check your answers \n" + errorStr);
+            dialog.showAndWait();
         } else {
             // TODO clear window and stop the alarm
         }
