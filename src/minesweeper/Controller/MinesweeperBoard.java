@@ -1,4 +1,4 @@
-package minesweeper;
+package minesweeper.Controller;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -7,14 +7,14 @@ public class MinesweeperBoard {
 
     private int mapHeight;
     private int mapWidth;
-    private ArrayList<Panel> mindSweeperBoard;
+    private ArrayList<Panel> mineSweeperBoard;
 
     public MinesweeperBoard(int mapHeight, int mapWidth) {
 
         this.mapHeight = mapHeight;
         this.mapWidth = mapWidth;
 
-        mindSweeperBoard = new ArrayList<Panel>();
+        mineSweeperBoard = new ArrayList<Panel>();
 
         startGame();
     }
@@ -25,13 +25,13 @@ public class MinesweeperBoard {
         for(int i = 0; i < this.mapWidth; i++) {
 
             for(int j = 0; j < this.mapHeight; j++) {
-                this.mindSweeperBoard.add(new Panel(i, j, Panel.BoxValue.Blank, 0));
+                this.mineSweeperBoard.add(new Panel(i, j, Panel.BoxValue.Blank, 0));
             }
         }
 
         // set Bom
         Random rand = new Random();
-        int bomCount = (int)Math.ceil(this.mindSweeperBoard.size() * 0.13);
+        int bomCount = (int)Math.ceil(this.mineSweeperBoard.size() * 0.13);
         int[][] randomBomcoordinate = new int[bomCount][];
 
         for(int k = 0; k < bomCount; k++) {
