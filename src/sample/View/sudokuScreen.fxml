@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="420.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Sudoku.SudokuController">
     <children>
-        <HBox prefHeight="420.0" prefWidth="600.0" stylesheets="@sudokuScreenStyleSheet.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <HBox prefHeight="420.0" prefWidth="600.0" stylesheets="@style/sudokuScreenStyleSheet.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <GridPane gridLinesVisible="true" prefHeight="420.0" prefWidth="420.0">
                     <columnConstraints>
