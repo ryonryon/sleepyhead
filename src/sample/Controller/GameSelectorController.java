@@ -1,6 +1,5 @@
 package sample.Controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -17,7 +16,7 @@ public class GameSelectorController implements Initializable {
 
     }
 
-    public void playSudoku(ActionEvent actionEvent) {
+    public void playSudoku() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/sudokuScreen.fxml"));
             Parent parent = loader.load();

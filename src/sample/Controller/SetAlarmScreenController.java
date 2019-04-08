@@ -1,22 +1,14 @@
 package sample.Controller;
 
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
-
-import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
-
 
 public class SetAlarmScreenController implements Initializable {
     public OnCompleteSettingAlarm delegate;
@@ -40,10 +32,8 @@ public class SetAlarmScreenController implements Initializable {
     private Button quitButton;
     private boolean timerValidation = true;
 
-
     @FXML
     private void setAlarm(ActionEvent event) {
-
 
         this.timerValidation = true;
 
@@ -90,8 +80,6 @@ public class SetAlarmScreenController implements Initializable {
             stage.close();
             // pass the data set -> first screen
         }
-
-
     }
 
     public void showWarning(String message, String title) {
@@ -110,9 +98,6 @@ public class SetAlarmScreenController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
-
-
     }
 
 }

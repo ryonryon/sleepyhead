@@ -13,16 +13,12 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
-
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
-// Delegate Pattern
-// 1     ->     2   (Navigate, passing data)
-// 1     <-     2   (Delegate Pattern)
 public class FirstScreenController implements Initializable, OnCompleteSettingAlarm {
     @FXML
     private Label timeLabel;
