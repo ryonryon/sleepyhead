@@ -1,4 +1,4 @@
-package sample.Sudoku;
+package sudoku.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

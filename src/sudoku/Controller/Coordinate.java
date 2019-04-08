@@ -1,4 +1,4 @@
-package sample.Sudoku;
+package sudoku.Controller;
 
 public class Coordinate {
 

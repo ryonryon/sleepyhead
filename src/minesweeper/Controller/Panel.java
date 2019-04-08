@@ -6,14 +6,32 @@ public class Panel {
     private int yCoordinate;
     private BoxStatus boxStatus;
     private BoxValue boxValue;
-    private int bomNumberAround;
 
-    public Panel(int xCoordinate, int yCoordinate, BoxValue boxValue, int bomNumberAround) {
+    public int getXCoordinate() {
+        return xCoordinate;
+    }
+
+    public int getYCoordinate() {
+        return yCoordinate;
+    }
+
+    public BoxStatus getBoxStatus() {
+        return boxStatus;
+    }
+
+    public void setBoxStatus(BoxStatus boxStatus) {
+        this.boxStatus = boxStatus;
+    }
+
+    public BoxValue getBoxValue() {
+        return boxValue;
+    }
+
+    public Panel(int xCoordinate, int yCoordinate, BoxValue boxValue) {
 
         this.xCoordinate = xCoordinate;
         this.yCoordinate = yCoordinate;
         this.boxValue = boxValue;
-        this.bomNumberAround = bomNumberAround;
     }
 
     public StateAfterBoxOpen boxOpen() {
@@ -22,11 +40,13 @@ public class Panel {
             return StateAfterBoxOpen.Nothing;
         }
 
-        if(this.boxStatus == BoxStatus.Close && this.boxValue == BoxValue.Bom) {
+        if(this.boxStatus == BoxStatus.Close && this.boxValue == BoxValue.Bomb) {
+            setBoxStatus(BoxStatus.Opened);
             return StateAfterBoxOpen.GameOver;
         }
 
         if(this.boxStatus == BoxStatus.Close && this.boxValue == BoxValue.Blank) {
+            setBoxStatus(BoxStatus.Opened);
             return StateAfterBoxOpen.Inducible;
         }
 
@@ -41,13 +61,14 @@ public class Panel {
             || this.boxValue == BoxValue.Number_7
             || this.boxValue == BoxValue.Number_8
         ) {
+            setBoxStatus(BoxStatus.Opened);
             return StateAfterBoxOpen.Nothing;
         }
 
         return StateAfterBoxOpen.Error;
     }
 
-    private enum BoxStatus{
+    public enum BoxStatus{
 
         Opened,
         Close,
@@ -56,7 +77,7 @@ public class Panel {
 
     public enum BoxValue{
 
-        Bom,
+        Bomb,
         Blank,
         Number_1,
         Number_2,
@@ -69,7 +90,7 @@ public class Panel {
     }
 
     public enum StateAfterBoxOpen{
-        
+
         Nothing,
         GameOver,
         Inducible,

@@ -1,4 +1,4 @@
-package sample.Controller;
+package alarm.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

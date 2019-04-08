@@ -6,8 +6,8 @@
 
 <?import javafx.scene.control.Label?>
 <AnchorPane fx:id="anchorPane" prefHeight="420.0" prefWidth="600.0" styleClass="background"
-            stylesheets="/sample/View/firstScreenStyleSheet.css" xmlns="http://javafx.com/javafx/8.0.171"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.FirstScreenController">
+            stylesheets="/alarm/View/style/firstScreenStyleSheet.css" xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="alarm.Controller.FirstScreenController">
     <children>
         <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
               AnchorPane.topAnchor="0.0">
