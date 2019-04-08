@@ -175,7 +175,7 @@ public class SudokuController implements Initializable {
     @FXML
     public TextField x9y9;
 
-    public SudokuField sudokuField;
+    SudokuField sudokuField;
     private TextField[][] grid;
     private int selectedGridX;
     private int selectedGridY;
