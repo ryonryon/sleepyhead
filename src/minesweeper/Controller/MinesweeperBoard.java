@@ -1,7 +1,6 @@
 package minesweeper.Controller;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class MinesweeperBoard {
 
@@ -14,42 +13,97 @@ public class MinesweeperBoard {
         this.mapHeight = mapHeight;
         this.mapWidth = mapWidth;
 
-        mineSweeperBoard = new ArrayList<Panel>();
+        mineSweeperBoard = new ArrayList<>();
 
         startGame();
     }
 
     private void startGame() {
 
-        // create Panels
+        createPanels();
+
+        setBombs();
+
+        setNumberAroundBombs();
+
+    }
+
+    private void createPanels() {
+
         for(int i = 0; i < this.mapWidth; i++) {
 
             for(int j = 0; j < this.mapHeight; j++) {
+
                 this.mineSweeperBoard.add(new Panel(i, j, Panel.BoxValue.Blank, 0));
             }
         }
+    }
 
-        // set Bom
-        Random rand = new Random();
-        int bomCount = (int)Math.ceil(this.mineSweeperBoard.size() * 0.13);
-        int[][] randomBomcoordinate = new int[bomCount][];
+    private void setBombs() {
+        // TODO not yet finished
 
-        for(int k = 0; k < bomCount; k++) {
+    }
 
-        }
-
-        // set Number around Bom
+    private void setNumberAroundBombs() {
+        // TODO not yet finished
 
     }
 
     public void clickPanel(int x, int y) {
 
+        for (Panel panel: this.mineSweeperBoard) {
 
+            if(panel.getXCoordinate() == x && panel.getYCoordinate() == y) {
+
+                Panel.StateAfterBoxOpen afterStatus = panel.boxOpen();
+
+                if(afterStatus.equals(Panel.StateAfterBoxOpen.GameOver)) {
+
+                    gameOver();
+                }
+
+                if(afterStatus.equals(Panel.StateAfterBoxOpen.Inducible)) {
+
+                    clickPanel(x - 1, y - 1);
+                    clickPanel(x, y - 1);
+                    clickPanel(x + 1, y - 1);
+                    clickPanel(x - 1, y);
+                    clickPanel(x + 1, y);
+                    clickPanel(x - 1, y + 1);
+                    clickPanel(x, y - 1);
+                    clickPanel(x + 1, y + 1);
+                }
+
+                if(afterStatus.equals(Panel.StateAfterBoxOpen.Error)) {
+
+                    arrartError();
+                }
+            }
+        }
+    }
+
+    public boolean isCompletion() {
+        for (Panel panel: this.mineSweeperBoard) {
+
+            if(panel.getBoxStatus() == Panel.BoxStatus.Close) {
+
+                if(panel.getBoxValue() != Panel.BoxValue.Bomb) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    private void arrartError() {
     }
 
     private void gameOver() {
 
-        // TODO Open all panel
-
+        for (Panel panel: this.mineSweeperBoard) {
+            panel.boxOpen();
+        }
     }
+
+
 }
