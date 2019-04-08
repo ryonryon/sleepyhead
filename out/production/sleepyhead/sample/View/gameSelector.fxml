@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.GridPane?>
 <GridPane fx:controller="sample.Controller.GameSelectorController"
           xmlns:fx="http://javafx.com/fxml"
-          alignment="center">
+          alignment="center" >
     <children>
         <Label alignment="CENTER" text="Do you want to stop the alarm? So play the games!!!"  GridPane.rowIndex="0" GridPane.columnIndex="0" ></Label>
         <Button fx:id="sudokoButton" text="Sudoko" GridPane.rowIndex="1" GridPane.columnIndex="0"  ></Button>
