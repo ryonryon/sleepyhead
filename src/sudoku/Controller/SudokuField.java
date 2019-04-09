@@ -71,9 +71,9 @@ class SudokuField {
         return this.sudokuField;
     }
 
-    ArrayList<errorCoordinate> isCompletion() {
+    ArrayList<String> isCompletion() {
 
-        ArrayList<errorCoordinate> errorList = new ArrayList<>();
+        ArrayList<String> errorList = new ArrayList<>();
 
         int x1 = 0;
         int x2 = 0;
@@ -221,111 +221,111 @@ class SudokuField {
         }
 
         if(x1 != 45) {
-            errorList.add(errorCoordinate.X1);
+            errorList.add(errorCoordinate.X1.name());
         }
 
         if(x2 != 45) {
-            errorList.add(errorCoordinate.X2);
+            errorList.add(errorCoordinate.X2.name());
         }
 
         if(x3 != 45) {
-            errorList.add(errorCoordinate.X3);
+            errorList.add(errorCoordinate.X3.name());
         }
 
         if(x4 != 45) {
-            errorList.add(errorCoordinate.X4);
+            errorList.add(errorCoordinate.X4.name());
         }
 
         if(x5 != 45) {
-            errorList.add(errorCoordinate.X5);
+            errorList.add(errorCoordinate.X5.name());
         }
 
         if(x6 != 45) {
-            errorList.add(errorCoordinate.X6);
+            errorList.add(errorCoordinate.X6.name());
         }
 
         if(x7 != 45) {
-            errorList.add(errorCoordinate.X7);
+            errorList.add(errorCoordinate.X7.name());
         }
 
         if(x8 != 45) {
-            errorList.add(errorCoordinate.X8);
+            errorList.add(errorCoordinate.X8.name());
         }
 
         if(x9 != 45) {
-            errorList.add(errorCoordinate.X9);
+            errorList.add(errorCoordinate.X9.name());
         }
 
         if(y1 != 45) {
-            errorList.add(errorCoordinate.Y1);
+            errorList.add(errorCoordinate.Y1.name());
         }
 
         if(y2 != 45) {
-            errorList.add(errorCoordinate.Y2);
+            errorList.add(errorCoordinate.Y2.name());
         }
 
         if(y3 != 45) {
-            errorList.add(errorCoordinate.Y3);
+            errorList.add(errorCoordinate.Y3.name());
         }
 
         if(y4 != 45) {
-            errorList.add(errorCoordinate.Y4);
+            errorList.add(errorCoordinate.Y4.name());
         }
 
         if(y5 != 45) {
-            errorList.add(errorCoordinate.Y5);
+            errorList.add(errorCoordinate.Y5.name());
         }
 
         if(y6 != 45) {
-            errorList.add(errorCoordinate.Y6);
+            errorList.add(errorCoordinate.Y6.name());
         }
 
         if(y7 != 45) {
-            errorList.add(errorCoordinate.Y7);
+            errorList.add(errorCoordinate.Y7.name());
         }
 
         if(y8 != 45) {
-            errorList.add(errorCoordinate.Y8);
+            errorList.add(errorCoordinate.Y8.name());
         }
 
         if(y9 != 45) {
-            errorList.add(errorCoordinate.Y9);
+            errorList.add(errorCoordinate.Y9.name());
         }
 
         if(box1 != 45) {
-            errorList.add(errorCoordinate.BOX1);
+            errorList.add(errorCoordinate.BOX1.name());
         }
 
         if(box2 != 45) {
-            errorList.add(errorCoordinate.BOX2);
+            errorList.add(errorCoordinate.BOX2.name());
         }
 
         if(box3 != 45) {
-            errorList.add(errorCoordinate.BOX3);
+            errorList.add(errorCoordinate.BOX3.name());
         }
 
         if(box4 != 45) {
-            errorList.add(errorCoordinate.BOX4);
+            errorList.add(errorCoordinate.BOX4.name());
         }
 
         if(box5 != 45) {
-            errorList.add(errorCoordinate.BOX5);
+            errorList.add(errorCoordinate.BOX5.name());
         }
 
         if(box6 != 45) {
-            errorList.add(errorCoordinate.BOX6);
+            errorList.add(errorCoordinate.BOX6.name());
         }
 
         if(box7 != 45) {
-            errorList.add(errorCoordinate.BOX7);
+            errorList.add(errorCoordinate.BOX7.name());
         }
 
         if(box8 != 45) {
-            errorList.add(errorCoordinate.BOX8);
+            errorList.add(errorCoordinate.BOX8.name());
         }
 
         if(box9 != 45) {
-            errorList.add(errorCoordinate.BOX9);
+            errorList.add(errorCoordinate.BOX9.name());
         }
 
         return errorList;

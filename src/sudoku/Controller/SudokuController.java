@@ -232,19 +232,13 @@ public class SudokuController implements Initializable {
     @FXML
     public void checkAnswers() {
 
-        ArrayList<SudokuField.errorCoordinate> errorList = sudokuField.isCompletion();
-
-        String errorStr = "";
-
-        for (SudokuField.errorCoordinate error : errorList) {
-            errorStr += error + " ";
-        }
+        ArrayList<String> errorList = sudokuField.isCompletion();
 
         if (!errorList.isEmpty()) {
             Alert dialog = new Alert(Alert.AlertType.INFORMATION);
             dialog.setHeaderText(null);
             dialog.setTitle("Something wrong");
-            dialog.setContentText("Please check your answers \n" + errorStr);
+            dialog.setContentText("Please check your answers \n" + errorList.toString());
             dialog.showAndWait();
         } else {
             // TODO display the "clear" and stop the alarm
