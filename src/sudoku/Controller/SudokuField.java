@@ -61,7 +61,7 @@ class SudokuField {
     private String getRandomSudokufile() {
 
         Random random = new Random();
-        int fileNumber = random.nextInt(questionfFileCount());
+        int fileNumber = random.nextInt(questionFileCount());
 
         return "../sleepyhead/src/sudoku/Controller/Questions/question_" + fileNumber + ".csv";
     }
