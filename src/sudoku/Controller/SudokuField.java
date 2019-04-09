@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 class SudokuField {
 
-    private List<Coordinate> sudokuField;
+    private List<Coordinate> sudokuField = new ArrayList<>();
     private String tempFileName;
 
     SudokuField() {
@@ -33,7 +33,6 @@ class SudokuField {
     void setTemplate(){
 
         try {
-            this.sudokuField = new ArrayList<>();
 
             Scanner scanner = new Scanner(new File(this.tempFileName));
 
