@@ -14,7 +14,7 @@ class SudokuField {
 
     SudokuField() {
 
-        this.tempFileName = getRandomSudokufile(2);
+        this.tempFileName = getRandomSudokufile();
 
         setTemplate();
     }
@@ -58,12 +58,29 @@ class SudokuField {
         }
     }
 
-    private String getRandomSudokufile(int fileCount) {
+    private String getRandomSudokufile() {
 
         Random random = new Random();
-        int fileNumber = random.nextInt(fileCount);
+        int fileNumber = random.nextInt(questionfFileCount());
 
         return "../sleepyhead/src/sudoku/Controller/Questions/question_" + fileNumber + ".csv";
+    }
+
+    private int questionfFileCount(){
+
+        int fileCount;
+
+        File dir = new File("../sleepyhead/src/sudoku/Controller/Questions/");
+
+        File[] files = dir.listFiles();
+
+        if(files == null) {
+            fileCount = 0;
+        } else {
+            fileCount = files.length;
+        }
+
+        return fileCount;
     }
 
     List<Coordinate> getSudokuField() {
