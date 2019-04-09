@@ -31,45 +31,42 @@ class SudokuField {
 
     private void setRandomTemplate(){
 
-        int data[][] = getSudokuQuestion();
+        String fileName = getRandomSudokufile(2);
 
-        for(int i = 0; i < data.length; i++) {
+        try {
+            Scanner scanner = new Scanner(new File(fileName));
 
-            for(int j = 0; j < data[i].length; j++) {
+            for (int row = 0; row < 9; row++) {
 
-                Coordinate square = new Coordinate(i, j, data[i][j]);
+                String line= scanner.next();
+                String[] values = line.split(",");
 
-                this.sudokuField.add(square);
-            }
-        }
-    }
+                for (int col = 0; col < 9; col++) {
 
-    private int[][] getSudokuQuestion(){
-
-        Random random = new Random();
-        int fileNumber = random.nextInt(2);
-        // TODO: change file name path
-        String fileName = "../sleepyhead/src/sudoku/Controller/Questions/question_" + fileNumber + ".csv";
-
-        int data[][] = null;
-
-        // TODO: need to be fix catch section
-        try (Scanner scanner = new Scanner(new File(fileName))) {
-
-            int size = scanner.nextInt();
-            data = new int[size][size];
-
-            for (int row = 0; row < size; row++) {
-                for (int col = 0; col < size; col++) {
-                    data[row][col] = scanner.nextInt();
+                    this.sudokuField.add(new Coordinate(row, col, Integer.parseInt(values[col])));
                 }
             }
 
         } catch (FileNotFoundException|NullPointerException e) {
-            System.out.println("File not found");
-        }
 
-        return data;
+            System.out.println("File not found");
+
+        } catch (NumberFormatException e) {
+
+            System.out.println("File data might be wrong");
+        }
+    }
+
+    public void resetGame() {
+        // TODO
+    }
+
+    private String getRandomSudokufile(int fileCount) {
+
+        Random random = new Random();
+        int fileNumber = random.nextInt(fileCount);
+
+        return "../sleepyhead/src/sudoku/Controller/Questions/question_" + fileNumber + ".csv";
     }
 
     List<Coordinate> getSudokuField() {
