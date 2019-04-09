@@ -7,22 +7,19 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-public class SudokuField {
+class SudokuField {
 
     private List<Coordinate> sudokuField;
+    private String tempFileName;
 
-    public SudokuField() {
+    SudokuField() {
 
-        this.sudokuField = new ArrayList<>();
+        this.tempFileName = getRandomSudokufile();
 
-        setRandomTemplate();
+        setTemplate();
     }
 
-    public boolean setNumber(int x, int y, int value) {
-
-        if(value < 0 || 9 < value) {
-            return false;
-        }
+    void setNumber(int x, int y, int value) {
 
         for (Coordinate square : this.sudokuField) {
 
@@ -31,60 +28,69 @@ public class SudokuField {
                 square.setValue(value);
             }
         }
-        return true;
     }
 
-    public void setRandomTemplate(){
+    void setTemplate(){
 
-        int data[][] = getSudokuQuestion();
+        try {
+            this.sudokuField = new ArrayList<>();
 
-        for(int i = 0; i < data.length; i++) {
+            Scanner scanner = new Scanner(new File(this.tempFileName));
 
-            for(int j = 0; j < data[i].length; j++) {
+            for (int row = 0; row < 9; row++) {
 
-                Coordinate square = new Coordinate(i, j, data[i][j]);
+                String line= scanner.next();
+                String[] values = line.split(",");
 
-                this.sudokuField.add(square);
-            }
-        }
-    }
+                for (int col = 0; col < 9; col++) {
 
-    public int[][] getSudokuQuestion(){
-
-        Random random = new Random();
-        int fileNumber = random.nextInt(2);
-        // TODO: change file name path
-        String fileName = "../sleepyhead/src/sudoku/Controller/Questions/question_" + fileNumber + ".csv";
-
-        int data[][] = null;
-
-        // TODO: need to be fix catch section
-        try (Scanner scanner = new Scanner(new File(fileName))) {
-
-            int size = scanner.nextInt();
-            data = new int[size][size];
-
-            for (int row = 0; row < size; row++) {
-                for (int col = 0; col < size; col++) {
-                    data[row][col] = scanner.nextInt();
+                    this.sudokuField.add(new Coordinate(row, col, Integer.parseInt(values[col])));
                 }
             }
 
         } catch (FileNotFoundException|NullPointerException e) {
-            System.out.println("File not found");
-        }
 
-        return data;
+            System.out.println("File not found");
+
+        } catch (NumberFormatException e) {
+
+            System.out.println("File data might be wrong");
+        }
     }
 
-    public List<Coordinate> getSudokuField() {
+    private String getRandomSudokufile() {
+
+        Random random = new Random();
+        int fileNumber = random.nextInt(questionfFileCount());
+
+        return "../sleepyhead/src/sudoku/Controller/Questions/question_" + fileNumber + ".csv";
+    }
+
+    private int questionfFileCount(){
+
+        int fileCount;
+
+        File dir = new File("../sleepyhead/src/sudoku/Controller/Questions/");
+
+        File[] files = dir.listFiles();
+
+        if(files == null) {
+            fileCount = 0;
+        } else {
+            fileCount = files.length;
+        }
+
+        return fileCount;
+    }
+
+    List<Coordinate> getSudokuField() {
 
         return this.sudokuField;
     }
 
-    public ArrayList<errorCoordinate> isCompletion() {
+    ArrayList<String> isCompletion() {
 
-        ArrayList<errorCoordinate> errorList = new ArrayList<>();
+        ArrayList<String> errorList = new ArrayList<>();
 
         int x1 = 0;
         int x2 = 0;
@@ -116,224 +122,210 @@ public class SudokuField {
         int box8 = 0;
         int box9 = 0;
 
-        for(int i = 0; i < this.sudokuField.size(); i++) {
+        for (Coordinate coordinate : this.sudokuField) {
 
-            if(this.sudokuField.get(i).getxCoordinate() == 1) {
-                x1 += this.sudokuField.get(i).getValue();
+            int xCoordinate = coordinate.getxCoordinate();
+            int yCoordinate = coordinate.getyCoordinate();
+            int boxCoordinate = coordinate.getBoxCoordinate();
+            int coordinateValue = coordinate.getValue();
+
+            switch (xCoordinate) {
+                case 1:
+                    x1 += coordinateValue;
+                    break;
+                case 2:
+                    x2 += coordinateValue;
+                    break;
+                case 3:
+                    x3 += coordinateValue;
+                    break;
+                case 4:
+                    x4 += coordinateValue;
+                    break;
+                case 5:
+                    x5 += coordinateValue;
+                    break;
+                case 6:
+                    x6 += coordinateValue;
+                    break;
+                case 7:
+                    x7 += coordinateValue;
+                    break;
+                case 8:
+                    x8 += coordinateValue;
+                    break;
+                case 9:
+                    x9 += coordinateValue;
+                    break;
             }
 
-            if(this.sudokuField.get(i).getxCoordinate() == 2) {
-                x2 += this.sudokuField.get(i).getValue();
+            switch (yCoordinate) {
+                case 1:
+                    y1 += coordinateValue;
+                    break;
+                case 2:
+                    y2 += coordinateValue;
+                    break;
+                case 3:
+                    y3 += coordinateValue;
+                    break;
+                case 4:
+                    y4 += coordinateValue;
+                    break;
+                case 5:
+                    y5 += coordinateValue;
+                    break;
+                case 6:
+                    y6 += coordinateValue;
+                    break;
+                case 7:
+                    y7 += coordinateValue;
+                    break;
+                case 8:
+                    y8 += coordinateValue;
+                    break;
+                case 9:
+                    y9 += coordinateValue;
+                    break;
             }
 
-            if(this.sudokuField.get(i).getxCoordinate() == 3) {
-                x3 += this.sudokuField.get(i).getValue();
+            switch (boxCoordinate) {
+                case 1:
+                    box1 += coordinateValue;
+                    break;
+                case 2:
+                    box2 += coordinateValue;
+                    break;
+                case 3:
+                    box3 += coordinateValue;
+                    break;
+                case 4:
+                    box4 += coordinateValue;
+                    break;
+                case 5:
+                    box5 += coordinateValue;
+                    break;
+                case 6:
+                    box6 += coordinateValue;
+                    break;
+                case 7:
+                    box7 += coordinateValue;
+                    break;
+                case 8:
+                    box8 += coordinateValue;
+                    break;
+                case 9:
+                    box9 += coordinateValue;
+                    break;
             }
-
-            if(this.sudokuField.get(i).getxCoordinate() == 4) {
-                x4 += this.sudokuField.get(i).getValue();
-            }
-
-            if(this.sudokuField.get(i).getxCoordinate() == 5) {
-                x5 += this.sudokuField.get(i).getValue();
-            }
-
-            if(this.sudokuField.get(i).getxCoordinate() == 6) {
-                x6 += this.sudokuField.get(i).getValue();
-            }
-
-            if(this.sudokuField.get(i).getxCoordinate() == 7) {
-                x7 += this.sudokuField.get(i).getValue();
-            }
-
-            if(this.sudokuField.get(i).getxCoordinate() == 8) {
-                x8 += this.sudokuField.get(i).getValue();
-            }
-
-            if(this.sudokuField.get(i).getxCoordinate() == 9) {
-                x9 += this.sudokuField.get(i).getValue();
-            }
-
-            if(this.sudokuField.get(i).getyCoordinate() == 1) {
-                y1 += this.sudokuField.get(i).getValue();
-            }
-
-            if(this.sudokuField.get(i).getyCoordinate() == 2) {
-                y2 += this.sudokuField.get(i).getValue();
-            }
-
-            if(this.sudokuField.get(i).getyCoordinate() == 3) {
-                y3 += this.sudokuField.get(i).getValue();
-            }
-
-            if(this.sudokuField.get(i).getyCoordinate() == 4) {
-                y4 += this.sudokuField.get(i).getValue();
-            }
-
-            if(this.sudokuField.get(i).getyCoordinate() == 5) {
-                y5 += this.sudokuField.get(i).getValue();
-            }
-
-            if(this.sudokuField.get(i).getyCoordinate() == 6) {
-                y6 += this.sudokuField.get(i).getValue();
-            }
-
-            if(this.sudokuField.get(i).getyCoordinate() == 7) {
-                y7 += this.sudokuField.get(i).getValue();
-            }
-
-            if(this.sudokuField.get(i).getyCoordinate() == 8) {
-                y8 += this.sudokuField.get(i).getValue();
-            }
-
-            if(this.sudokuField.get(i).getyCoordinate() == 9) {
-                y9 += this.sudokuField.get(i).getValue();
-            }
-
-            if(this.sudokuField.get(i).getBoxCoordinate() == 1) {
-                box1 += this.sudokuField.get(i).getValue();
-            }
-
-            if(this.sudokuField.get(i).getBoxCoordinate() == 2) {
-                box2 += this.sudokuField.get(i).getValue();
-            }
-
-            if(this.sudokuField.get(i).getBoxCoordinate() == 3) {
-                box3 += this.sudokuField.get(i).getValue();
-            }
-
-            if(this.sudokuField.get(i).getBoxCoordinate() == 4) {
-                box4 += this.sudokuField.get(i).getValue();
-            }
-
-            if(this.sudokuField.get(i).getBoxCoordinate() == 5) {
-                box5 += this.sudokuField.get(i).getValue();
-            }
-
-            if(this.sudokuField.get(i).getBoxCoordinate() == 6) {
-                box6 += this.sudokuField.get(i).getValue();
-            }
-
-            if(this.sudokuField.get(i).getBoxCoordinate() == 7) {
-                box7 += this.sudokuField.get(i).getValue();
-            }
-
-            if(this.sudokuField.get(i).getBoxCoordinate() == 8) {
-                box8 += this.sudokuField.get(i).getValue();
-            }
-
-            if(this.sudokuField.get(i).getBoxCoordinate() == 9) {
-                box9 += this.sudokuField.get(i).getValue();
-            }
-
         }
 
         if(x1 != 45) {
-            errorList.add(errorCoordinate.X1);
+            errorList.add(errorCoordinate.X1.name());
         }
 
         if(x2 != 45) {
-            errorList.add(errorCoordinate.X2);
+            errorList.add(errorCoordinate.X2.name());
         }
 
         if(x3 != 45) {
-            errorList.add(errorCoordinate.X3);
+            errorList.add(errorCoordinate.X3.name());
         }
 
         if(x4 != 45) {
-            errorList.add(errorCoordinate.X4);
+            errorList.add(errorCoordinate.X4.name());
         }
 
         if(x5 != 45) {
-            errorList.add(errorCoordinate.X5);
+            errorList.add(errorCoordinate.X5.name());
         }
 
         if(x6 != 45) {
-            errorList.add(errorCoordinate.X6);
+            errorList.add(errorCoordinate.X6.name());
         }
 
         if(x7 != 45) {
-            errorList.add(errorCoordinate.X7);
+            errorList.add(errorCoordinate.X7.name());
         }
 
         if(x8 != 45) {
-            errorList.add(errorCoordinate.X8);
+            errorList.add(errorCoordinate.X8.name());
         }
 
         if(x9 != 45) {
-            errorList.add(errorCoordinate.X9);
+            errorList.add(errorCoordinate.X9.name());
         }
 
         if(y1 != 45) {
-            errorList.add(errorCoordinate.Y1);
+            errorList.add(errorCoordinate.Y1.name());
         }
 
         if(y2 != 45) {
-            errorList.add(errorCoordinate.Y2);
+            errorList.add(errorCoordinate.Y2.name());
         }
 
         if(y3 != 45) {
-            errorList.add(errorCoordinate.Y3);
+            errorList.add(errorCoordinate.Y3.name());
         }
 
         if(y4 != 45) {
-            errorList.add(errorCoordinate.Y4);
+            errorList.add(errorCoordinate.Y4.name());
         }
 
         if(y5 != 45) {
-            errorList.add(errorCoordinate.Y5);
+            errorList.add(errorCoordinate.Y5.name());
         }
 
         if(y6 != 45) {
-            errorList.add(errorCoordinate.Y6);
+            errorList.add(errorCoordinate.Y6.name());
         }
 
         if(y7 != 45) {
-            errorList.add(errorCoordinate.Y7);
+            errorList.add(errorCoordinate.Y7.name());
         }
 
         if(y8 != 45) {
-            errorList.add(errorCoordinate.Y8);
+            errorList.add(errorCoordinate.Y8.name());
         }
 
         if(y9 != 45) {
-            errorList.add(errorCoordinate.Y9);
+            errorList.add(errorCoordinate.Y9.name());
         }
 
         if(box1 != 45) {
-            errorList.add(errorCoordinate.BOX1);
+            errorList.add(errorCoordinate.BOX1.name());
         }
 
         if(box2 != 45) {
-            errorList.add(errorCoordinate.BOX2);
+            errorList.add(errorCoordinate.BOX2.name());
         }
 
         if(box3 != 45) {
-            errorList.add(errorCoordinate.BOX3);
+            errorList.add(errorCoordinate.BOX3.name());
         }
 
         if(box4 != 45) {
-            errorList.add(errorCoordinate.BOX4);
+            errorList.add(errorCoordinate.BOX4.name());
         }
 
         if(box5 != 45) {
-            errorList.add(errorCoordinate.BOX5);
+            errorList.add(errorCoordinate.BOX5.name());
         }
 
         if(box6 != 45) {
-            errorList.add(errorCoordinate.BOX6);
+            errorList.add(errorCoordinate.BOX6.name());
         }
 
         if(box7 != 45) {
-            errorList.add(errorCoordinate.BOX7);
+            errorList.add(errorCoordinate.BOX7.name());
         }
 
         if(box8 != 45) {
-            errorList.add(errorCoordinate.BOX8);
+            errorList.add(errorCoordinate.BOX8.name());
         }
 
         if(box9 != 45) {
-            errorList.add(errorCoordinate.BOX9);
+            errorList.add(errorCoordinate.BOX9.name());
         }
 
         return errorList;
