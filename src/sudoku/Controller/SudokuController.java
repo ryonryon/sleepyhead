@@ -230,7 +230,7 @@ public class SudokuController implements Initializable {
     }
 
     @FXML
-    public void checkAnswers(ActionEvent actionEvent) {
+    public void checkAnswers() {
 
         // TODO what is it?
         sudokuField.getSudokuField();
