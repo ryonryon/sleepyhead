@@ -232,8 +232,6 @@ public class SudokuController implements Initializable {
     @FXML
     public void checkAnswers() {
 
-        // TODO what is it?
-        sudokuField.getSudokuField();
         ArrayList<SudokuField.errorCoordinate> errorList = sudokuField.isCompletion();
 
         String errorStr = "";
