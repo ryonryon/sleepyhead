@@ -106,113 +106,100 @@ class SudokuField {
         int box9 = 0;
 
         for (Coordinate coordinate : this.sudokuField) {
-            
-            if(coordinate.getxCoordinate() == 1) {
-                x1 += coordinate.getValue();
+
+            int xCoordinate = coordinate.getxCoordinate();
+            int yCoordinate = coordinate.getyCoordinate();
+            int boxCoordinate = coordinate.getBoxCoordinate();
+            int coordinateValue = coordinate.getValue();
+
+            switch (xCoordinate) {
+                case 1:
+                    x1 += coordinateValue;
+                    break;
+                case 2:
+                    x2 += coordinateValue;
+                    break;
+                case 3:
+                    x3 += coordinateValue;
+                    break;
+                case 4:
+                    x4 += coordinateValue;
+                    break;
+                case 5:
+                    x5 += coordinateValue;
+                    break;
+                case 6:
+                    x6 += coordinateValue;
+                    break;
+                case 7:
+                    x7 += coordinateValue;
+                    break;
+                case 8:
+                    x8 += coordinateValue;
+                    break;
+                case 9:
+                    x9 += coordinateValue;
+                    break;
             }
 
-            if(coordinate.getxCoordinate() == 2) {
-                x2 += coordinate.getValue();
+            switch (yCoordinate) {
+                case 1:
+                    y1 += coordinateValue;
+                    break;
+                case 2:
+                    y2 += coordinateValue;
+                    break;
+                case 3:
+                    y3 += coordinateValue;
+                    break;
+                case 4:
+                    y4 += coordinateValue;
+                    break;
+                case 5:
+                    y5 += coordinateValue;
+                    break;
+                case 6:
+                    y6 += coordinateValue;
+                    break;
+                case 7:
+                    y7 += coordinateValue;
+                    break;
+                case 8:
+                    y8 += coordinateValue;
+                    break;
+                case 9:
+                    y9 += coordinateValue;
+                    break;
             }
 
-            if(coordinate.getxCoordinate() == 3) {
-                x3 += coordinate.getValue();
-            }
-
-            if(coordinate.getxCoordinate() == 4) {
-                x4 += coordinate.getValue();
-            }
-
-            if(coordinate.getxCoordinate() == 5) {
-                x5 += coordinate.getValue();
-            }
-
-            if(coordinate.getxCoordinate() == 6) {
-                x6 += coordinate.getValue();
-            }
-
-            if(coordinate.getxCoordinate() == 7) {
-                x7 += coordinate.getValue();
-            }
-
-            if(coordinate.getxCoordinate() == 8) {
-                x8 += coordinate.getValue();
-            }
-
-            if(coordinate.getxCoordinate() == 9) {
-                x9 += coordinate.getValue();
-            }
-
-            if(coordinate.getyCoordinate() == 1) {
-                y1 += coordinate.getValue();
-            }
-
-            if(coordinate.getyCoordinate() == 2) {
-                y2 += coordinate.getValue();
-            }
-
-            if(coordinate.getyCoordinate() == 3) {
-                y3 += coordinate.getValue();
-            }
-
-            if(coordinate.getyCoordinate() == 4) {
-                y4 += coordinate.getValue();
-            }
-
-            if(coordinate.getyCoordinate() == 5) {
-                y5 += coordinate.getValue();
-            }
-
-            if(coordinate.getyCoordinate() == 6) {
-                y6 += coordinate.getValue();
-            }
-
-            if(coordinate.getyCoordinate() == 7) {
-                y7 += coordinate.getValue();
-            }
-
-            if(coordinate.getyCoordinate() == 8) {
-                y8 += coordinate.getValue();
-            }
-
-            if(coordinate.getyCoordinate() == 9) {
-                y9 += coordinate.getValue();
-            }
-
-            if(coordinate.getBoxCoordinate() == 1) {
-                box1 += coordinate.getValue();
-            }
-
-            if(coordinate.getBoxCoordinate() == 2) {
-                box2 += coordinate.getValue();
-            }
-
-            if(coordinate.getBoxCoordinate() == 3) {
-                box3 += coordinate.getValue();
-            }
-
-            if(coordinate.getBoxCoordinate() == 4) {
-                box4 += coordinate.getValue();
-            }
-
-            if(coordinate.getBoxCoordinate() == 5) {
-                box5 += coordinate.getValue();
-            }
-
-            if(coordinate.getBoxCoordinate() == 6) {
-                box6 += coordinate.getValue();
-            }
-
-            if(coordinate.getBoxCoordinate() == 7) {
-                box7 += coordinate.getValue();
-            }
-
-            if(coordinate.getBoxCoordinate() == 8) {
-                box8 += coordinate.getValue();
-            }
-
-            if(coordinate.getBoxCoordinate() == 9) {
-                box9 += coordinate.getValue();
+            switch (boxCoordinate) {
+                case 1:
+                    box1 += coordinateValue;
+                    break;
+                case 2:
+                    box2 += coordinateValue;
+                    break;
+                case 3:
+                    box3 += coordinateValue;
+                    break;
+                case 4:
+                    box4 += coordinateValue;
+                    break;
+                case 5:
+                    box5 += coordinateValue;
+                    break;
+                case 6:
+                    box6 += coordinateValue;
+                    break;
+                case 7:
+                    box7 += coordinateValue;
+                    break;
+                case 8:
+                    box8 += coordinateValue;
+                    break;
+                case 9:
+                    box9 += coordinateValue;
+                    break;
             }
         }
 
