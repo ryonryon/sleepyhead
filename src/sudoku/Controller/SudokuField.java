@@ -66,7 +66,7 @@ class SudokuField {
         return "../sleepyhead/src/sudoku/Controller/Questions/question_" + fileNumber + ".csv";
     }
 
-    private int questionfFileCount(){
+    private int questionFileCount(){
 
         int fileCount;
 
