@@ -111,10 +111,6 @@ class SudokuField {
                 x1 += coordinate.getValue();
             }
 
-            if(coordinate.getxCoordinate() == 1) {
-                x1 += coordinate.getValue();
-            }
-
             if(coordinate.getxCoordinate() == 2) {
                 x2 += coordinate.getValue();
             }
