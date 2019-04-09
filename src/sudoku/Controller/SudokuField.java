@@ -10,12 +10,14 @@ import java.util.Scanner;
 class SudokuField {
 
     private List<Coordinate> sudokuField;
+    private String tempFileName;
 
     SudokuField() {
 
         this.sudokuField = new ArrayList<>();
+        this.tempFileName = getRandomSudokufile(2);
 
-        setRandomTemplate();
+        setTemplate();
     }
 
     void setNumber(int x, int y, int value) {
@@ -29,12 +31,10 @@ class SudokuField {
         }
     }
 
-    private void setRandomTemplate(){
-
-        String fileName = getRandomSudokufile(2);
+    private void setTemplate(){
 
         try {
-            Scanner scanner = new Scanner(new File(fileName));
+            Scanner scanner = new Scanner(new File(this.tempFileName));
 
             for (int row = 0; row < 9; row++) {
 
@@ -55,10 +55,6 @@ class SudokuField {
 
             System.out.println("File data might be wrong");
         }
-    }
-
-    public void resetGame() {
-        // TODO
     }
 
     private String getRandomSudokufile(int fileCount) {
