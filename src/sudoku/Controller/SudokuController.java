@@ -180,7 +180,6 @@ public class SudokuController implements Initializable {
     private int selectedGridX;
     private int selectedGridY;
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -226,7 +225,6 @@ public class SudokuController implements Initializable {
                 this.grid[x_id][y_id].setText("");
             }
         }
-
     }
 
     @FXML
@@ -251,7 +249,6 @@ public class SudokuController implements Initializable {
         String id = ((Control)mouseEvent.getSource()).getId();
         selectedGridX = (Integer.parseInt(id.substring(1,2))) - 1;
         selectedGridY = (Integer.parseInt(id.substring(3,4))) - 1;
-
     }
 
     @FXML
@@ -264,7 +261,5 @@ public class SudokuController implements Initializable {
         }
 
         sudokuField.setNumber(selectedGridX, selectedGridY, Integer.parseInt(clickedNumber));
-
     }
-
 }
