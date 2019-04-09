@@ -14,7 +14,6 @@ class SudokuField {
 
     SudokuField() {
 
-        this.sudokuField = new ArrayList<>();
         this.tempFileName = getRandomSudokufile(2);
 
         setTemplate();
@@ -31,9 +30,11 @@ class SudokuField {
         }
     }
 
-    private void setTemplate(){
+    void setTemplate(){
 
         try {
+            this.sudokuField = new ArrayList<>();
+
             Scanner scanner = new Scanner(new File(this.tempFileName));
 
             for (int row = 0; row < 9; row++) {

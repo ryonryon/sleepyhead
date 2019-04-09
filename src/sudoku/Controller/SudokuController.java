@@ -198,24 +198,34 @@ public class SudokuController implements Initializable {
             {x9y1, x9y2, x9y3, x9y4, x9y5, x9y6, x9y7, x9y8, x9y9},
         };
 
-        for (Coordinate coordinate : sudokuField.getSudokuField()) {
-
-            int value = coordinate.getValue();
-
-            if (value != 0) {
-
-                int x_id = coordinate.getxCoordinate() - 1;
-                int y_id = coordinate.getyCoordinate() - 1;
-
-                this.grid[x_id][y_id].setText(String.valueOf(value));
-                this.grid[x_id][y_id].setEditable(false);
-                this.grid[x_id][y_id].setStyle("-fx-background-color: lightgray;");
-            }
-        }
+        connectPanel();
     }
 
     @FXML
     public void newGame() {
+
+        this.sudokuField.setTemplate();
+
+        connectPanel();
+    }
+
+    private void connectPanel() {
+
+        for (Coordinate coordinate : this.sudokuField.getSudokuField()) {
+
+            int x_id = coordinate.getxCoordinate() - 1;
+            int y_id = coordinate.getyCoordinate() - 1;
+            int value = coordinate.getValue();
+
+            if (value != 0) {
+
+                this.grid[x_id][y_id].setText(String.valueOf(value));
+                this.grid[x_id][y_id].setEditable(false);
+                this.grid[x_id][y_id].setStyle("-fx-background-color: lightgray;");
+            } else {
+                this.grid[x_id][y_id].setText("");
+            }
+        }
 
     }
 
