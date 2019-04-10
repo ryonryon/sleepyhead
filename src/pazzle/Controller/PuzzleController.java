@@ -6,15 +6,12 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class PuzzleController extends JFrame implements ActionListener {
-    public static void main(String[] args) {
-        new PuzzleController();
-    }
 
     JButton[][] Button = new JButton[3][3];
 
     public PuzzleController() {
         setSize(350, 365);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setUndecorated(true);
         setLocationRelativeTo(null);
         setTitle("Puzzle Game");
         JPanel panel = new JPanel();
@@ -89,7 +86,9 @@ public class PuzzleController extends JFrame implements ActionListener {
                 Button[0][2].getText().equals("3") && Button[1][0].getText().equals("4") &&
                 Button[1][1].getText().equals("5") && Button[1][2].getText().equals("6") &&
                 Button[2][0].getText().equals("7") && Button[2][1].getText().equals("8"))
-            JOptionPane.showMessageDialog(this, " you win ");
+            JOptionPane.showMessageDialog(this, " you win!!!! ");
+
+
     }
 }
 
