@@ -19,11 +19,12 @@ public class Minesweeper {
 
     }
 
-    public void putFlug(int x, int y) {
+    public void putFlag(int x, int y) {
 
         if(this.panel.get(new Coordinate(x, y)).getBoxStatus() == BoxValueStatus.BoxStatus.flagged) {
 
             this.panel.get(new Coordinate(x, y)).setBoxStatus(BoxValueStatus.BoxStatus.Close);
+
         } else if(this.panel.get(new Coordinate(x, y)).getBoxStatus() == BoxValueStatus.BoxStatus.Close) {
 
             this.panel.get(new Coordinate(x, y)).setBoxStatus(BoxValueStatus.BoxStatus.flagged);
@@ -90,6 +91,7 @@ public class Minesweeper {
         if(this.buttonType == ButtonType.Open) {
 
             this.buttonType = ButtonType.Flag;
+
         } else {
 
             this.buttonType = ButtonType.Open;
