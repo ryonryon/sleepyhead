@@ -37,6 +37,7 @@ public class GameSelectorController implements Initializable {
             Parent parent = loader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(parent));
+            stage.setResizable(false);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();

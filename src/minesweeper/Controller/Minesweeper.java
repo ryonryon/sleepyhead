@@ -6,8 +6,8 @@ import java.util.Random;
 
 public class Minesweeper {
 
-    Map<Coordinate, BoxValueStatus> panel;
-    ButtonType buttonType;
+    private Map<Coordinate, BoxValueStatus> panel;
+    private ButtonType buttonType;
 
     public Minesweeper(int panelRowNum, int panelColumnNum) {
 
