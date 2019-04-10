@@ -1,15 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.GridPane?>
-<GridPane fx:controller="alarm.Controller.GameSelectorController"
-          xmlns:fx="http://javafx.com/fxml"
-          alignment="center" >
-    <children>
-        <Label alignment="CENTER" text="Do you want to stop the alarm? So play the games!!!"  GridPane.rowIndex="0" GridPane.columnIndex="0"></Label>
-        <Button fx:id="sudokuButton" text="Sudoku" GridPane.rowIndex="1" GridPane.columnIndex="0" onAction="#playSudoku" ></Button>
-        <Button fx:id="puzzleButton" text="Puzzle" GridPane.rowIndex="2" GridPane.columnIndex="0"></Button>
-    </children>
 
-</GridPane>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="200.0" prefWidth="400.0" stylesheets="/alarm/View/style/gameSelectorStyleSheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alarm.Controller.GameSelectorController">
+      <VBox prefHeight="200.0" prefWidth="400.0" styleClass="background" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane prefHeight="125.0" prefWidth="400.0">
+                  <Label alignment="CENTER" prefHeight="125.0" prefWidth="400.0" text="Do you want to stop the alarm?" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0" />
+            </AnchorPane>
+            <AnchorPane prefHeight="125.0" prefWidth="400.0">
+                  <Label alignment="CENTER" prefHeight="34.0" prefWidth="400.0" text="So play the games!!!" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0" />
+            </AnchorPane>
+            <AnchorPane prefHeight="150.0" prefWidth="400.0">
+                  <HBox prefHeight="100.0" prefWidth="400.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="50.0">
+                        <Button mnemonicParsing="false" onAction="#playSudoku" text="Sudoku">
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#playPuzzle" text="Puzzle">
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#playMinesweeper" text="Minesweeper">
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </Button>
+                  </HBox>
+            </AnchorPane>
+      </VBox>
+</AnchorPane>

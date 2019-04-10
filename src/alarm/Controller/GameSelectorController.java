@@ -17,14 +17,29 @@ public class GameSelectorController implements Initializable {
     }
 
     public void playSudoku() {
+        String filePath = "../../sudoku/View/sudokuScreen.fxml";
+        openGameScreen(filePath);
+    }
+
+    public void playMinesweeper() {
+        String filePath = "../../minesweeper/View/MinesweeperScreen.fxml";
+        openGameScreen(filePath);
+    }
+
+    public void playPuzzle() {
+//        String filePath = "../../pazzle/View/PuzzleScreen.fxml";
+//        openGameScreen(filePath);
+    }
+
+    public void openGameScreen(String filePath) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../../sudoku/View/sudokuScreen.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(filePath));
             Parent parent = loader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(parent));
             stage.show();
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 }
