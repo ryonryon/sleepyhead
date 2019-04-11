@@ -4,7 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-public class Minesweeper {
+class Minesweeper {
+
+    public Map<Coordinate, BoxValueStatus> getPanel() {
+        return panel;
+    }
 
     private Map<Coordinate, BoxValueStatus> panel;
     private ButtonType buttonType;
@@ -119,7 +123,6 @@ public class Minesweeper {
 
             }
         }
-
     }
 
     private void setBombs(int panelRowNum, int panelColumnNum) {
@@ -139,7 +142,6 @@ public class Minesweeper {
 
             setNumberAroundBombs(randomNums[0], randomNums[1]);
         }
-
     }
 
     private int[] getRandom(int panelRowNum, int panelColumnNum) {

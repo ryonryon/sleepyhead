@@ -83,8 +83,8 @@ public class MinesweeperController implements Initializable {
 
             for(int j = 0; j <= 9; j++) {
 
-                BoxValueStatus.BoxStatus status = this.minesweeper.panel.get(new Coordinate(i, j)).getBoxStatus();
-                BoxValueStatus.BoxValue value = this.minesweeper.panel.get(new Coordinate(i, j)).getBoxValue();
+                BoxValueStatus.BoxStatus status = this.minesweeper.getPanel().get(new Coordinate(i, j)).getBoxStatus();
+                BoxValueStatus.BoxValue value = this.minesweeper.getPanel().get(new Coordinate(i, j)).getBoxValue();
                 setButton(grid[i][j], status, value);
             }
         }
