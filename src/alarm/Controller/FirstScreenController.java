@@ -15,7 +15,6 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
-import javax.swing.*;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
