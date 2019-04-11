@@ -6,12 +6,13 @@ import java.util.Random;
 
 class Minesweeper {
 
+    private Map<Coordinate, BoxValueStatus> panel;
+    private ButtonType buttonType;
+
+
     public Map<Coordinate, BoxValueStatus> getPanel() {
         return panel;
     }
-
-    private Map<Coordinate, BoxValueStatus> panel;
-    private ButtonType buttonType;
 
     public Minesweeper(int panelRowNum, int panelColumnNum) {
 
@@ -140,7 +141,7 @@ class Minesweeper {
 
             this.panel.get(new Coordinate(randomNums[0], randomNums[1])).setBoxValue(BoxValueStatus.BoxValue.Bomb);
 
-            setNumberAroundBombs(randomNums[0], randomNums[1]);
+            setNumberAroundBombs(randomNums[0], randomNums[1], panelRowNum, panelColumnNum);
         }
     }
 
@@ -155,40 +156,57 @@ class Minesweeper {
         return randomIntArr;
     }
 
-    private void setNumberAroundBombs(int x, int y) {
+    private void setNumberAroundBombs(int x, int y, int panelRowNum, int panelColumnNum) {
 
-        if(this.panel.get(new Coordinate(x - 1, y - 1)).getBoxValue() != BoxValueStatus.BoxValue.Bomb){
-            incrementNumber(x - 1, y - 1);
+        int i = x < 0 ? x - 1 : x;
+
+        int j = x <= panelRowNum ? i + 2 : i + 1;
+
+        int k = y < 0 ? y - 1 : y;
+
+        int l = y <= panelColumnNum ? k + 2 : k + 1;
+
+        for(; i < j; i++) {
+
+            for(; k < l; k++) {
+
+                if(this.panel.get(new Coordinate(i, k)).getBoxValue() != BoxValueStatus.BoxValue.Bomb){
+                    incrementNumber(i, k);
+                }
+            }
         }
 
-        if(this.panel.get(new Coordinate(x, y - 1)).getBoxValue() != BoxValueStatus.BoxValue.Bomb){
-            incrementNumber(x, y - 1);
-        }
-
-        if(this.panel.get(new Coordinate(x + 1, y - 1)).getBoxValue() != BoxValueStatus.BoxValue.Bomb){
-            incrementNumber(x + 1, y - 1);
-        }
-
-        if(this.panel.get(new Coordinate(x - 1, y)).getBoxValue() != BoxValueStatus.BoxValue.Bomb){
-            incrementNumber(x - 1, y - 1);
-        }
-
-        if(this.panel.get(new Coordinate(x + 1, y)).getBoxValue() != BoxValueStatus.BoxValue.Bomb){
-            incrementNumber(x + 1, y - 1);
-        }
-
-        if(this.panel.get(new Coordinate(x - 1, y + 1)).getBoxValue() != BoxValueStatus.BoxValue.Bomb){
-            incrementNumber(x - 1, y + 1);
-        }
-
-        if(this.panel.get(new Coordinate(x, y + 1)).getBoxValue() != BoxValueStatus.BoxValue.Bomb){
-            incrementNumber(x, y + 1);
-        }
-
-        if(this.panel.get(new Coordinate(x + 1, y + 1)).getBoxValue() != BoxValueStatus.BoxValue.Bomb){
-            incrementNumber(x + 1, y + 1);
-        }
-
+//        if(this.panel.get(new Coordinate(x - 1, y - 1)).getBoxValue() != BoxValueStatus.BoxValue.Bomb){
+//            incrementNumber(x - 1, y - 1);
+//        }
+//
+//        if(this.panel.get(new Coordinate(x, y - 1)).getBoxValue() != BoxValueStatus.BoxValue.Bomb){
+//            incrementNumber(x, y - 1);
+//        }
+//
+//        if(this.panel.get(new Coordinate(x + 1, y - 1)).getBoxValue() != BoxValueStatus.BoxValue.Bomb){
+//            incrementNumber(x + 1, y - 1);
+//        }
+//
+//        if(this.panel.get(new Coordinate(x - 1, y)).getBoxValue() != BoxValueStatus.BoxValue.Bomb){
+//            incrementNumber(x - 1, y - 1);
+//        }
+//
+//        if(this.panel.get(new Coordinate(x + 1, y)).getBoxValue() != BoxValueStatus.BoxValue.Bomb){
+//            incrementNumber(x + 1, y - 1);
+//        }
+//
+//        if(this.panel.get(new Coordinate(x - 1, y + 1)).getBoxValue() != BoxValueStatus.BoxValue.Bomb){
+//            incrementNumber(x - 1, y + 1);
+//        }
+//
+//        if(this.panel.get(new Coordinate(x, y + 1)).getBoxValue() != BoxValueStatus.BoxValue.Bomb){
+//            incrementNumber(x, y + 1);
+//        }
+//
+//        if(this.panel.get(new Coordinate(x + 1, y + 1)).getBoxValue() != BoxValueStatus.BoxValue.Bomb){
+//            incrementNumber(x + 1, y + 1);
+//        }
     }
 
     private void incrementNumber(int x, int y){
