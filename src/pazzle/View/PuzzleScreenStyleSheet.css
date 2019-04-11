@@ -1,0 +1,25 @@
+.button {
+    -fx-pref-width: 100px;
+    -fx-pref-height: 100px;
+    -fx-font-size: 28px;
+    -fx-font-family: "Noteworthy";
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #dadada;
+}
+
+.button:hover {
+    -fx-background-color: #F8CBC3;
+}
+
+.button-new {
+    -fx-padding: 5px;
+    -fx-pref-height: 15px;
+    -fx-pref-width: 120px;
+    -fx-font-size: 13px;
+    -fx-background-color: #F8CBC3;
+}
+
+.background {
+    -fx-background-color: #F5E8D5;
+}
+
