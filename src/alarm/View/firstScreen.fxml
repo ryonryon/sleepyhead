@@ -6,25 +6,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="450.0" prefWidth="600.0" styleClass="background" stylesheets="/alarm/View/style/firstScreenStyleSheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alarm.Controller.FirstScreenController">
-    <children>
-        <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <children>
-                <AnchorPane prefWidth="350.0" />
-                <AnchorPane prefHeight="450.0" prefWidth="250.0">
-                    <children>
-                        <Label fx:id="timeLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="129.0" prefHeight="50.0" prefWidth="186.0" />
-                        <TextField fx:id="hoursField" alignment="CENTER" layoutX="20.0" layoutY="131.0" prefHeight="45.0" prefWidth="45.0" />
-                        <Label fx:id="colon1" layoutX="73.0" layoutY="137.0" text=":" />
-                        <TextField fx:id="minutesField" alignment="CENTER" layoutX="90.0" layoutY="131.0" prefHeight="45.0" prefWidth="45.0" />
-                        <Label fx:id="colon2" layoutX="142.0" layoutY="137.0" text=":" />
-                        <TextField fx:id="secondsField" alignment="CENTER" layoutX="159.0" layoutY="131.0" prefHeight="45.0" prefWidth="45.0" />
-                        <Button fx:id="setAlarmButton" alignment="CENTER" contentDisplay="CENTER" layoutX="41.0" layoutY="212.0" onAction="#setAlarm" prefWidth="140.0" styleClass="buttons" text="Set Alarm" textAlignment="CENTER" AnchorPane.rightAnchor="69.0" AnchorPane.topAnchor="212.0" />
-                        <Button fx:id="quitButton" alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="276.0" onAction="#quitTheApp" prefWidth="140.0" styleClass="buttons" text="Quit" textAlignment="CENTER" AnchorPane.bottomAnchor="117.0" AnchorPane.rightAnchor="69.0" />
-
-                    </children>
-                </AnchorPane>
-            </children>
-        </HBox>
-    </children>
+<AnchorPane prefHeight="450.0" prefWidth="600.0" styleClass="background" stylesheets="/alarm/View/style/firstScreenStyleSheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alarm.Controller.FirstScreenController">
+    <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <AnchorPane prefWidth="350.0" />
+        <AnchorPane prefHeight="450.0" prefWidth="250.0">
+            <Label fx:id="timeLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="129.0" prefHeight="50.0" prefWidth="186.0" />
+            <TextField fx:id="hoursField" alignment="CENTER" layoutX="20.0" layoutY="131.0" prefHeight="45.0" prefWidth="45.0" />
+            <Label fx:id="colon1" layoutX="73.0" layoutY="137.0" text=":" />
+            <TextField fx:id="minutesField" alignment="CENTER" layoutX="90.0" layoutY="131.0" prefHeight="45.0" prefWidth="45.0" />
+            <Label fx:id="colon2" layoutX="142.0" layoutY="137.0" text=":" />
+            <TextField fx:id="secondsField" alignment="CENTER" layoutX="159.0" layoutY="131.0" prefHeight="45.0" prefWidth="45.0" />
+            <Button fx:id="setAlarmButton" alignment="CENTER" contentDisplay="CENTER" layoutX="41.0" layoutY="212.0" onAction="#setAlarm" prefWidth="140.0" styleClass="buttons" text="Set Alarm" textAlignment="CENTER" AnchorPane.rightAnchor="69.0" AnchorPane.topAnchor="212.0" />
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="276.0" onAction="#quitTheApp" prefWidth="140.0" styleClass="buttons" text="Quit" textAlignment="CENTER" AnchorPane.bottomAnchor="117.0" AnchorPane.rightAnchor="69.0" />
+        </AnchorPane>
+    </HBox>
 </AnchorPane>

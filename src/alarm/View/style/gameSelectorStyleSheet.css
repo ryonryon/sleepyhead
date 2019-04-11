@@ -20,6 +20,11 @@
 }
 
 .background {
+    -fx-background-image: url("firstScreenBackground.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-attachment: fixed;
+    -fx-background-size: cover, auto;
     -fx-background-color: #838399;
 }
 
@@ -27,5 +32,5 @@
     -fx-font-size: 20px;
     -fx-font-family: "Noteworthy";
     -fx-font-weight: bold;
-    -fx-text-fill: #F5E8D5;
+    -fx-text-fill: #7C707A;
 }
