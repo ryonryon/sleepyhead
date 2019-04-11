@@ -167,12 +167,8 @@ class Minesweeper {
         int l = y <= panelColumnNum ? k + 2 : k + 1;
 
         for(; i < j; i++) {
-
             for(; k < l; k++) {
-
-                if(this.panel.get(new Coordinate(i, k)).getBoxValue() != BoxValueStatus.BoxValue.Bomb){
-                    incrementNumber(i, k);
-                }
+                incrementNumber(i, k);
             }
         }
 
