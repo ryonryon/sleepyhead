@@ -7,16 +7,16 @@
     -fx-border-color: #dadada;
 }
 
-.button:hover {
+.button-new {
+    -fx-padding: 5px;
+    -fx-pref-height: 20px;
+    -fx-pref-width: 120px;
+    -fx-font-size: 18px;
     -fx-background-color: #F8CBC3;
 }
 
-.button-new {
-    -fx-padding: 5px;
-    -fx-pref-height: 15px;
-    -fx-pref-width: 120px;
-    -fx-font-size: 13px;
-    -fx-background-color: #F8CBC3;
+.button-new:hover {
+    -fx-background-color: #F29098;
 }
 
 .background {

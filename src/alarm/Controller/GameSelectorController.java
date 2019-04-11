@@ -27,6 +27,11 @@ public class GameSelectorController implements Initializable {
         openGameScreen(filePath);
     }
 
+    public void playPuzzle2() {
+        String filePath = "../../pazzle/View/PuzzleScreen.fxml";
+        openGameScreen(filePath);
+    }
+
     public void playPuzzle() {
         try {
             new PuzzleController();

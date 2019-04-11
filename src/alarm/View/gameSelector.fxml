@@ -28,7 +28,7 @@
                     <Button layoutX="75.0" layoutY="23.0" mnemonicParsing="false" onAction="#playMinesweeper" text="Minesweeper" />
                 </AnchorPane>
                 <AnchorPane prefHeight="150.0" prefWidth="200.0">
-                    <Button layoutX="96.0" layoutY="23.0" mnemonicParsing="false" onAction="#playPuzzle" text="Puzzle" />
+                    <Button layoutX="96.0" layoutY="23.0" mnemonicParsing="false" onAction="#playPuzzle2" text="Puzzle" />
                 </AnchorPane>
                 <AnchorPane prefHeight="150.0" prefWidth="200.0" />
             </VBox>
