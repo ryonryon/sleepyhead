@@ -95,9 +95,7 @@ public class PuzzleScreenController implements Initializable {
     private void refreshScreen() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                System.out.println(grid[i][j].getText());
                 if (grid[i][j].getText() == "") {
-                    System.out.println(grid[i][j].getText());
                     grid[i][j].setStyle("-fx-background-color: #F5E8D5");
                 } else
                     grid[i][j].setStyle("-fx-background-color: #FFFFFF");
