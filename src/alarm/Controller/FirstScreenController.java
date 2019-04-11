@@ -10,8 +10,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.util.Duration;
 
+import javax.swing.*;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,6 +23,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class FirstScreenController implements Initializable, OnCompleteSettingAlarm {
+
     @FXML
     private Label timeLabel;
     @FXML
@@ -105,6 +110,7 @@ public class FirstScreenController implements Initializable, OnCompleteSettingAl
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         hoursField.setPromptText("hr");
         hoursField.setFocusTraversable(false);
         minutesField.setPromptText("min");
@@ -114,6 +120,7 @@ public class FirstScreenController implements Initializable, OnCompleteSettingAl
 
         Media media = new Media(new File("src/alarm/sounds/alarm.mp3").toURI().toASCIIString());
         mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setOnEndOfMedia(() -> mediaPlayer.seek(Duration.ZERO));
     }
 
 
@@ -158,7 +165,9 @@ public class FirstScreenController implements Initializable, OnCompleteSettingAl
             this.showWarning("Please set a time for the alarm before starting!", "Time not found!");
         }
 
-        onComplete(totalTime);
+        if (this.timerValidation) {
+            onComplete(totalTime);
+        }
 
     }
 
@@ -178,6 +187,8 @@ public class FirstScreenController implements Initializable, OnCompleteSettingAl
             Parent parent = loader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(parent));
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
 
         } catch (Exception e) {
