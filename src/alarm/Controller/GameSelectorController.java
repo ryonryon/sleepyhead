@@ -28,8 +28,11 @@ public class GameSelectorController implements Initializable {
     }
 
     public void playPuzzle() {
-//        String filePath = "../../pazzle/View/PuzzleScreen.fxml";
-//        openGameScreen(filePath);
+        try {
+            new PuzzleController();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public void openGameScreen(String filePath) {
@@ -42,14 +45,6 @@ public class GameSelectorController implements Initializable {
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
-        }
-    }
-
-    public void playPuzzle() {
-        try {
-            new PuzzleController();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
         }
     }
 }
