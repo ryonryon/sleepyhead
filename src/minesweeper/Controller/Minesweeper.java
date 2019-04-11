@@ -158,13 +158,13 @@ class Minesweeper {
 
     private void setNumberAroundBombs(int x, int y, int panelRowNum, int panelColumnNum) {
 
-        int i = x < 0 ? x - 1 : x;
+        int i = x < 0 ? x : x - 1;
 
-        int j = x <= panelRowNum ? i + 2 : i + 1;
+        int j = x == panelRowNum ? i + 1 : i + 2;
 
-        int k = y < 0 ? y - 1 : y;
+        int k = y < 0 ? y : y - 1;
 
-        int l = y <= panelColumnNum ? k + 2 : k + 1;
+        int l = y == panelColumnNum ? k + 1 : k + 2;
 
         for(; i < j; i++) {
             for(; k < l; k++) {
