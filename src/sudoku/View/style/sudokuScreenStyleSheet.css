@@ -16,7 +16,20 @@
     -fx-padding: 5px;
     -fx-pref-height: 15px;
     -fx-pref-width: 120px;
+    -fx-text-fill: #7C707A;
+    -fx-font-family: "Noteworthy";
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
     -fx-background-color: #F5E8D5;
+}
+
+.button-check:hover {
+    -fx-background-color: #838399;
+    -fx-text-fill: #F5E8D5;
+}
+
+.background {
+    -fx-background-color: #7C707A;
 }
 
 .error-label{

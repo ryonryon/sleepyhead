@@ -18,16 +18,13 @@ public class GameSelectorController implements Initializable {
     }
 
     public void playSudoku() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../../sudoku/View/sudokuScreen.fxml"));
-            Parent parent = loader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(parent));
-            stage.setResizable(false);
-            stage.show();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        String filePath = "../../sudoku/View/sudokuScreen.fxml";
+        openGameScreen(filePath);
+    }
+
+    public void playMinesweeper() {
+        String filePath = "../../minesweeper/View/MinesweeperScreen.fxml";
+        openGameScreen(filePath);
     }
 
     public void playPuzzle() {
@@ -35,6 +32,19 @@ public class GameSelectorController implements Initializable {
             new PuzzleController();
         } catch (Exception e) {
             System.out.println(e.getMessage());
+        }
+    }
+
+    public void openGameScreen(String filePath) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(filePath));
+            Parent parent = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(parent));
+            stage.setResizable(false);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
