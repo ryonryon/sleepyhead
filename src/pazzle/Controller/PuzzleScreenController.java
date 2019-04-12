@@ -8,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
-import java.awt.event.WindowEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -75,22 +74,22 @@ public class PuzzleScreenController implements Initializable, IMediaPlayerContro
         int i = Integer.parseInt(buttonId.substring(1, 2));
         int j = Integer.parseInt(buttonId.substring(3, 4));
 
-        if ((j + 1) <= 2 && grid[i][j + 1].getText() == "") {
+        if ((j + 1) <= 2 && grid[i][j + 1].getText().equals("")) {
             String label = grid[i][j].getText();
             grid[i][j + 1].setText(label);
             grid[i][j].setText("");
         }
-        else if ((j - 1) >= 0 && grid[i][j - 1].getText() == "") {
+        else if ((j - 1) >= 0 && grid[i][j - 1].getText().equals("")) {
             String label = grid[i][j].getText();
             grid[i][j - 1].setText(label);
             grid[i][j].setText("");
         }
-        else if ((i + 1) <= 2 && grid[i + 1][j].getText() == "") {
+        else if ((i + 1) <= 2 && grid[i + 1][j].getText().equals("")) {
             String label = grid[i][j].getText();
             grid[i + 1][j].setText(label);
             grid[i][j].setText("");
         }
-        else if ((i - 1) >= 0 && grid[i - 1][j].getText() == "") {
+        else if ((i - 1) >= 0 && grid[i - 1][j].getText().equals("")) {
             String label = grid[i][j].getText();
             grid[i - 1][j].setText(label);
             grid[i][j].setText("");
@@ -103,7 +102,7 @@ public class PuzzleScreenController implements Initializable, IMediaPlayerContro
     private void refreshScreen() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                if (grid[i][j].getText() == "") {
+                if (grid[i][j].getText().equals("")) {
                     grid[i][j].setStyle("-fx-background-color: #F5E8D5");
                 } else
                     grid[i][j].setStyle("-fx-background-color: #FFFFFF");
