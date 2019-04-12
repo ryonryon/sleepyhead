@@ -9,7 +9,6 @@ class Minesweeper {
     private Map<Coordinate, BoxValueStatus> panel;
     private ButtonType buttonType;
 
-
     public Map<Coordinate, BoxValueStatus> getPanel() {
         return panel;
     }

@@ -4,6 +4,7 @@ import alarm.IMediaPlayerController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
@@ -116,13 +117,16 @@ public class PuzzleScreenController implements Initializable, IMediaPlayerContro
                 grid[1][1].getText().equals("5") && grid[1][2].getText().equals("6") &&
                 grid[2][0].getText().equals("7") && grid[2][1].getText().equals("8")) {
 
-            // todo: stop the alarm
-            System.out.println("You Win");
-        } else {
+            Alert dialog = new Alert(Alert.AlertType.INFORMATION);
+            dialog.setHeaderText(null);
+            dialog.setTitle("Clear");
+            dialog.setContentText("You win!!! \n now you can stop the alarm.");
+            dialog.showAndWait();
 
             mediaPlayer.stop();
             Stage stage = (Stage) x0y0.getScene().getWindow();
             stage.close();
+
         }
     }
 }
