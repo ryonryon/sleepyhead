@@ -166,11 +166,6 @@ class Minesweeper {
 
         int l = y == panelColumnNum - 1 ? y : y + 1;
 
-        // TODO 最後消してください。
-        System.out.println("Bomb 座標");
-        System.out.println("x: " + x);
-        System.out.println("y: " + y);
-
         for(; i <= j; i++) {
             for(; k <= l; k++) {
                 incrementNumber(i, k);
@@ -182,42 +177,39 @@ class Minesweeper {
 
     private void incrementNumber(int x, int y){
 
-        // TODO 最後消してください。
-        System.out.println("");
-        System.out.println("Number 座標");
-        System.out.println("x: " + x);
-        System.out.println("y: " + y);
+        switch(this.panel.get(new Coordinate(x, y)).getBoxValue()) {
 
-        if(this.panel.get(new Coordinate(x, y)).getBoxValue() == BoxValueStatus.BoxValue.Blank) {
-            this.panel.get(new Coordinate(x, y)).setBoxValue(BoxValueStatus.BoxValue.Number_1);
-        }
+            case Blank:
+                this.panel.get(new Coordinate(x, y)).setBoxValue(BoxValueStatus.BoxValue.Number_1);
+                break;
 
-        if(this.panel.get(new Coordinate(x, y)).getBoxValue() == BoxValueStatus.BoxValue.Number_1) {
-            this.panel.get(new Coordinate(x, y)).setBoxValue(BoxValueStatus.BoxValue.Number_2);
-        }
+            case Number_1:
+                this.panel.get(new Coordinate(x, y)).setBoxValue(BoxValueStatus.BoxValue.Number_2);
+                break;
 
-        if(this.panel.get(new Coordinate(x, y)).getBoxValue() == BoxValueStatus.BoxValue.Number_2) {
-            this.panel.get(new Coordinate(x, y)).setBoxValue(BoxValueStatus.BoxValue.Number_3);
-        }
+            case Number_2:
+                this.panel.get(new Coordinate(x, y)).setBoxValue(BoxValueStatus.BoxValue.Number_3);
+                break;
 
-        if(this.panel.get(new Coordinate(x, y)).getBoxValue() == BoxValueStatus.BoxValue.Number_3) {
-            this.panel.get(new Coordinate(x, y)).setBoxValue(BoxValueStatus.BoxValue.Number_4);
-        }
+            case Number_3:
+                this.panel.get(new Coordinate(x, y)).setBoxValue(BoxValueStatus.BoxValue.Number_4);
+                break;
 
-        if(this.panel.get(new Coordinate(x, y)).getBoxValue() == BoxValueStatus.BoxValue.Number_4) {
-            this.panel.get(new Coordinate(x, y)).setBoxValue(BoxValueStatus.BoxValue.Number_5);
-        }
+            case Number_4:
+                this.panel.get(new Coordinate(x, y)).setBoxValue(BoxValueStatus.BoxValue.Number_5);
+                break;
 
-        if(this.panel.get(new Coordinate(x, y)).getBoxValue() == BoxValueStatus.BoxValue.Number_5) {
-            this.panel.get(new Coordinate(x, y)).setBoxValue(BoxValueStatus.BoxValue.Number_6);
-        }
+            case Number_5:
+                this.panel.get(new Coordinate(x, y)).setBoxValue(BoxValueStatus.BoxValue.Number_6);
+                break;
 
-        if(this.panel.get(new Coordinate(x, y)).getBoxValue() == BoxValueStatus.BoxValue.Number_6) {
-            this.panel.get(new Coordinate(x, y)).setBoxValue(BoxValueStatus.BoxValue.Number_7);
-        }
+            case Number_6:
+                this.panel.get(new Coordinate(x, y)).setBoxValue(BoxValueStatus.BoxValue.Number_7);
+                break;
 
-        if(this.panel.get(new Coordinate(x, y)).getBoxValue() == BoxValueStatus.BoxValue.Number_7) {
-            this.panel.get(new Coordinate(x, y)).setBoxValue(BoxValueStatus.BoxValue.Number_8);
+            case Number_7:
+                this.panel.get(new Coordinate(x, y)).setBoxValue(BoxValueStatus.BoxValue.Number_8);
+                break;
         }
     }
 
