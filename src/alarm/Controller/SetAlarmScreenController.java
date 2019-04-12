@@ -1,6 +1,5 @@
 package alarm.Controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -11,10 +10,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SetAlarmScreenController implements Initializable {
+
     public OnCompleteSettingAlarm delegate;
 
     @FXML
-    public void quitForm(ActionEvent actionEvent) {
+    public void quitForm() {
         Stage stage = (Stage) quitButton.getScene().getWindow();
         stage.close();
     }
@@ -30,10 +30,11 @@ public class SetAlarmScreenController implements Initializable {
 
     @FXML
     private Button quitButton;
+
     private boolean timerValidation = true;
 
     @FXML
-    private void setAlarm(ActionEvent event) {
+    private void setAlarm() {
 
         this.timerValidation = true;
 
@@ -97,9 +98,7 @@ public class SetAlarmScreenController implements Initializable {
      * @param rb
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-    }
-
+    public void initialize(URL url, ResourceBundle rb) {}
 }
 
 
