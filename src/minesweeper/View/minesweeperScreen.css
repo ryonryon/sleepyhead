@@ -2,15 +2,15 @@
 .gridButton-closed {
     -fx-pref-width: 42px;
     -fx-pref-height: 42px;
-    -fx-background-color: #e7e7e7;
-    -fx-border-color: #dadada;
+    -fx-background-color: #dfdfdf;
+    -fx-border-color: #e7e7e7;
 }
 
 .gridButton-open {
     -fx-pref-width: 42px;
     -fx-pref-height: 42px;
-    -fx-background-color: #e7e7e7;
-    -fx-border-color: #d6d6d6;
+    -fx-background-color: #d0d0d0;
+    -fx-border-color: #e7e7e7;
 }
 
 .button:hover {

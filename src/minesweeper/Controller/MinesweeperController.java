@@ -108,7 +108,7 @@ public class MinesweeperController implements Initializable, IMediaPlayerControl
         switch (boxStatus) {
             case Opened:
                 setValue(button, boxValue);
-                button.getStyleClass().add("gridButton-closed");
+                button.getStyleClass().add("gridButton-open");
                 break;
             case flagged:
                 setImage(button,"../../minesweeper/View/img/flag2.png");
@@ -149,12 +149,12 @@ public class MinesweeperController implements Initializable, IMediaPlayerControl
                 setImage(button, "../../minesweeper/View/img/8.png");
                 break;
             case Bomb:
-                button.setStyle("-fx-background-color: #d6d6d6");
+                button.setStyle("-fx-background-color: #d0d0d0");
                 setImage(button, "../../minesweeper/View/img/bomb.png");
                 isSmile = false;
                 break;
             case Blank:
-                button.setStyle("-fx-background-color: #d6d6d6");
+                button.setStyle("-fx-background-color: #d0d0d0");
                 setImage(button, "../../minesweeper/View/img/blank.png");
                 break;
         }
