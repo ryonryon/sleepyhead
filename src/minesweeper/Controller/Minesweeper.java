@@ -158,54 +158,35 @@ class Minesweeper {
 
     private void setNumberAroundBombs(int x, int y, int panelRowNum, int panelColumnNum) {
 
-        int i = x < 0 ? x : x - 1;
+        int i = x == 0 ? x : x - 1;
 
-        int j = x == panelRowNum ? i + 1 : i + 2;
+        int j = x == panelRowNum - 1 ? x : x + 1;
 
-        int k = y < 0 ? y : y - 1;
+        int k = y == 0 ? y : y - 1;
 
-        int l = y == panelColumnNum ? k + 1 : k + 2;
+        int l = y == panelColumnNum - 1 ? y : y + 1;
 
-        for(; i < j; i++) {
-            for(; k < l; k++) {
+        // TODO 最後消してください。
+        System.out.println("Bomb 座標");
+        System.out.println("x: " + x);
+        System.out.println("y: " + y);
+
+        for(; i <= j; i++) {
+            for(; k <= l; k++) {
                 incrementNumber(i, k);
             }
-        }
 
-//        if(this.panel.get(new Coordinate(x - 1, y - 1)).getBoxValue() != BoxValueStatus.BoxValue.Bomb){
-//            incrementNumber(x - 1, y - 1);
-//        }
-//
-//        if(this.panel.get(new Coordinate(x, y - 1)).getBoxValue() != BoxValueStatus.BoxValue.Bomb){
-//            incrementNumber(x, y - 1);
-//        }
-//
-//        if(this.panel.get(new Coordinate(x + 1, y - 1)).getBoxValue() != BoxValueStatus.BoxValue.Bomb){
-//            incrementNumber(x + 1, y - 1);
-//        }
-//
-//        if(this.panel.get(new Coordinate(x - 1, y)).getBoxValue() != BoxValueStatus.BoxValue.Bomb){
-//            incrementNumber(x - 1, y - 1);
-//        }
-//
-//        if(this.panel.get(new Coordinate(x + 1, y)).getBoxValue() != BoxValueStatus.BoxValue.Bomb){
-//            incrementNumber(x + 1, y - 1);
-//        }
-//
-//        if(this.panel.get(new Coordinate(x - 1, y + 1)).getBoxValue() != BoxValueStatus.BoxValue.Bomb){
-//            incrementNumber(x - 1, y + 1);
-//        }
-//
-//        if(this.panel.get(new Coordinate(x, y + 1)).getBoxValue() != BoxValueStatus.BoxValue.Bomb){
-//            incrementNumber(x, y + 1);
-//        }
-//
-//        if(this.panel.get(new Coordinate(x + 1, y + 1)).getBoxValue() != BoxValueStatus.BoxValue.Bomb){
-//            incrementNumber(x + 1, y + 1);
-//        }
+            k =  y == 0 ? y : y - 1;
+        }
     }
 
     private void incrementNumber(int x, int y){
+
+        // TODO 最後消してください。
+        System.out.println("");
+        System.out.println("Number 座標");
+        System.out.println("x: " + x);
+        System.out.println("y: " + y);
 
         if(this.panel.get(new Coordinate(x, y)).getBoxValue() == BoxValueStatus.BoxValue.Blank) {
             this.panel.get(new Coordinate(x, y)).setBoxValue(BoxValueStatus.BoxValue.Number_1);
