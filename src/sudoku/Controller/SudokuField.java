@@ -43,7 +43,7 @@ class SudokuField {
 
                 for (int col = 0; col < 9; col++) {
 
-                    this.sudokuField.add(new Coordinate(row, col, Integer.parseInt(values[col])));
+                    this.sudokuField.add(new Coordinate(col, row, Integer.parseInt(values[col])));
                 }
             }
 
