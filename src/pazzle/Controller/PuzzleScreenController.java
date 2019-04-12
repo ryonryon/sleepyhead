@@ -1,14 +1,18 @@
 package pazzle.Controller;
 
+import alarm.IMediaPlayerController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.media.MediaPlayer;
+import javafx.stage.Stage;
 
+import java.awt.event.WindowEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class PuzzleScreenController implements Initializable {
+public class PuzzleScreenController implements Initializable, IMediaPlayerController {
 
     @FXML
     public Button x0y0, x0y1, x0y2;
@@ -18,7 +22,11 @@ public class PuzzleScreenController implements Initializable {
     public Button x2y0, x2y1, x2y2;
 
     private Button[][] grid;
+    private MediaPlayer mediaPlayer;
 
+    public void setMediaPlayer(MediaPlayer mediaPlayer) {
+        this.mediaPlayer = mediaPlayer;
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -113,6 +121,9 @@ public class PuzzleScreenController implements Initializable {
 
             // todo: stop the alarm
             System.out.println("You Win");
+            mediaPlayer.stop();
+            Stage stage = (Stage) x0y0.getScene().getWindow();
+            stage.close();
         }
 
 

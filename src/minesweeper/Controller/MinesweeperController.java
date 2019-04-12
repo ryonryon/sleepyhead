@@ -1,16 +1,18 @@
 package minesweeper.Controller;
 
+import alarm.IMediaPlayerController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.MediaPlayer;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MinesweeperController implements Initializable {
+public class MinesweeperController implements Initializable, IMediaPlayerController {
     @FXML
     public Button x0y0, x0y1, x0y2, x0y3, x0y4, x0y5, x0y6, x0y7, x0y8, x0y9;
     @FXML
@@ -67,8 +69,8 @@ public class MinesweeperController implements Initializable {
     public void clicked(ActionEvent actionEvent) {
 
         String buttonId = ((Button) actionEvent.getSource()).getId();
-        int XPosition = Integer.parseInt(buttonId.substring(1,2));
-        int YPosition = Integer.parseInt(buttonId.substring(3,4));
+        int XPosition = Integer.parseInt(buttonId.substring(1, 2));
+        int YPosition = Integer.parseInt(buttonId.substring(3, 4));
 
         if (isFlagOn) {
             minesweeper.putFlag(XPosition, YPosition);
@@ -84,7 +86,7 @@ public class MinesweeperController implements Initializable {
     private void refreshScreen() {
         for (int i = 0; i <= 9; i++) {
 
-            for(int j = 0; j <= 9; j++) {
+            for (int j = 0; j <= 9; j++) {
 
                 BoxValueStatus.BoxStatus status = this.minesweeper.getPanel().get(new Coordinate(i, j)).getBoxStatus();
                 BoxValueStatus.BoxValue value = this.minesweeper.getPanel().get(new Coordinate(i, j)).getBoxValue();
@@ -97,8 +99,8 @@ public class MinesweeperController implements Initializable {
 
 //        switch (boxStatus) {
 //            case Opened:
-                setValue(button, boxValue);
-                button.setStyle("-fx-background-color: #d6d6d6");
+        setValue(button, boxValue);
+        button.setStyle("-fx-background-color: #d6d6d6");
 //                break;
 //            case flagged:
 //                setImage(button,"./View/img/flag.png");
@@ -177,5 +179,12 @@ public class MinesweeperController implements Initializable {
         setImage(resetButton, "./View/img/smiley.png");
         refreshScreen();
 
+    }
+
+    private MediaPlayer mediaPlayer;
+
+    @Override
+    public void setMediaPlayer(MediaPlayer mediaPlayer) {
+        this.mediaPlayer = mediaPlayer;
     }
 }

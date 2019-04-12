@@ -1,5 +1,7 @@
 package pazzle.Controller;
 
+import javafx.scene.media.MediaPlayer;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,6 +12,7 @@ public class PuzzleController extends JFrame implements ActionListener {
     JButton[][] Button = new JButton[3][3];
 
     public PuzzleController() {
+
         setSize(350, 365);
         setUndecorated(true);
         setLocationRelativeTo(null);
