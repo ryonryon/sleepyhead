@@ -1,7 +1,6 @@
 package alarm.Controller;
 
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -26,17 +25,11 @@ public class FirstScreenController implements Initializable, OnCompleteSettingAl
     @FXML
     private Label timeLabel;
     @FXML
-    private Button setAlarmButton;
+    private Button setAlarmButton, quitButton;
     @FXML
-    private TextField hoursField;
+    private TextField hoursField, minutesField, secondsField;
     @FXML
-    private TextField minutesField;
-    @FXML
-    private TextField secondsField;
-    @FXML
-    private Label colon1;
-    @FXML
-    private Label colon2;
+    private Label colon1, colon2;
 
     private boolean timerValidation = true;
 
@@ -102,8 +95,11 @@ public class FirstScreenController implements Initializable, OnCompleteSettingAl
 
 
     @FXML
-    public void quitTheApp(ActionEvent actionEvent) {
+    public void quitTheApp() {
+        Stage stage = (Stage) quitButton.getScene().getWindow();
+        stage.close();
         Platform.exit();
+        System.exit(0);
     }
 
 
@@ -124,7 +120,7 @@ public class FirstScreenController implements Initializable, OnCompleteSettingAl
 
 
     @FXML
-    private void setAlarm(ActionEvent event) {
+    private void setAlarm() {
 
         this.timerValidation = true;
 
@@ -171,7 +167,7 @@ public class FirstScreenController implements Initializable, OnCompleteSettingAl
     }
 
 
-    public void showWarning(String message, String title) {
+    private void showWarning(String message, String title) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle(title);
         alert.setHeaderText(null);
@@ -180,7 +176,7 @@ public class FirstScreenController implements Initializable, OnCompleteSettingAl
     }
 
 
-    public void openGameSelector() {
+    private void openGameSelector() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/gameSelector.fxml"));
             Parent parent = loader.load();
