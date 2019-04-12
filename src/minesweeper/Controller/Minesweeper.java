@@ -86,43 +86,47 @@ class Minesweeper {
 
     private void openAroundPanel(int x, int y) {
 
-        if(
-            this.panel.get(new Coordinate(x, y)).getBoxValue() == BoxValueStatus.BoxValue.Number_1
-            || this.panel.get(new Coordinate(x, y)).getBoxValue() == BoxValueStatus.BoxValue.Number_2
-            || this.panel.get(new Coordinate(x, y)).getBoxValue() == BoxValueStatus.BoxValue.Number_3
-            || this.panel.get(new Coordinate(x, y)).getBoxValue() == BoxValueStatus.BoxValue.Number_4
-            || this.panel.get(new Coordinate(x, y)).getBoxValue() == BoxValueStatus.BoxValue.Number_5
-            || this.panel.get(new Coordinate(x, y)).getBoxValue() == BoxValueStatus.BoxValue.Number_6
-            || this.panel.get(new Coordinate(x, y)).getBoxValue() == BoxValueStatus.BoxValue.Number_7
-            || this.panel.get(new Coordinate(x, y)).getBoxValue() == BoxValueStatus.BoxValue.Number_8
-        ) {
-            this.panel.get(new Coordinate(x, y)).setBoxStatus(BoxValueStatus.BoxStatus.Opened);
+        if(this.panel.get(new Coordinate(x, y)).getBoxStatus() == BoxValueStatus.BoxStatus.Close) {
 
-        }
+            if(
+                    this.panel.get(new Coordinate(x, y)).getBoxValue() == BoxValueStatus.BoxValue.Number_1
+                            || this.panel.get(new Coordinate(x, y)).getBoxValue() == BoxValueStatus.BoxValue.Number_2
+                            || this.panel.get(new Coordinate(x, y)).getBoxValue() == BoxValueStatus.BoxValue.Number_3
+                            || this.panel.get(new Coordinate(x, y)).getBoxValue() == BoxValueStatus.BoxValue.Number_4
+                            || this.panel.get(new Coordinate(x, y)).getBoxValue() == BoxValueStatus.BoxValue.Number_5
+                            || this.panel.get(new Coordinate(x, y)).getBoxValue() == BoxValueStatus.BoxValue.Number_6
+                            || this.panel.get(new Coordinate(x, y)).getBoxValue() == BoxValueStatus.BoxValue.Number_7
+                            || this.panel.get(new Coordinate(x, y)).getBoxValue() == BoxValueStatus.BoxValue.Number_8
+            ) {
+                this.panel.get(new Coordinate(x, y)).setBoxStatus(BoxValueStatus.BoxStatus.Opened);
 
-        if(this.panel.get(new Coordinate(x, y)).getBoxValue() == BoxValueStatus.BoxValue.Blank) {
+            }
 
-            this.panel.get(new Coordinate(x, y)).setBoxStatus(BoxValueStatus.BoxStatus.Opened);
+            if(this.panel.get(new Coordinate(x, y)).getBoxValue() == BoxValueStatus.BoxValue.Blank) {
 
-            int i = x == 0 ? x : x - 1;
+                this.panel.get(new Coordinate(x, y)).setBoxStatus(BoxValueStatus.BoxStatus.Opened);
 
-            int j = x == 10 - 1 ? x : x + 1;
+                int i = x == 0 ? x : x - 1;
 
-            int k = y == 0 ? y : y - 1;
+                int j = x == 10 - 1 ? x : x + 1;
 
-            int l = y == 10 - 1 ? y : y + 1;
+                int k = y == 0 ? y : y - 1;
 
-            for(; i <= j; i++) {
-                for(; k <= l; k++) {
-                    if(i == x && k == y) {
+                int l = y == 10 - 1 ? y : y + 1;
 
-                        continue;
+                for(; i <= j; i++) {
+                    for(; k <= l; k++) {
+                        if(i == x && k == y) {
+
+                            continue;
+                        }
+                        System.out.println();
+
+                        openAroundPanel(i, k);
                     }
 
-                    openAroundPanel(i, k);
+                    k =  y == 0 ? y : y - 1;
                 }
-
-                k =  y == 0 ? y : y - 1;
             }
         }
     }
