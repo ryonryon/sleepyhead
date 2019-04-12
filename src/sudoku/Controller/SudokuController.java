@@ -1,16 +1,19 @@
 package sudoku.Controller;
 
+import alarm.IMediaPlayerController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.MediaPlayer;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class SudokuController implements Initializable {
+public class SudokuController implements Initializable, IMediaPlayerController {
 
     @FXML
     public TextField x1y1, x1y2, x1y3, x1y4, x1y5, x1y6, x1y7, x1y8, x1y9;
@@ -35,6 +38,11 @@ public class SudokuController implements Initializable {
     private TextField[][] grid;
     private int selectedGridX;
     private int selectedGridY;
+    private MediaPlayer mediaPlayer;
+
+    public void setMediaPlayer(MediaPlayer mediaPlayer) {
+        this.mediaPlayer = mediaPlayer;
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -95,7 +103,9 @@ public class SudokuController implements Initializable {
             dialog.setContentText("Please check your answers \n" + errorList.toString());
             dialog.showAndWait();
         } else {
-            // TODO display the "clear" and stop the alarm
+            mediaPlayer.stop();
+            Stage stage = (Stage) x9y9.getScene().getWindow();
+            stage.close();
         }
     }
 
