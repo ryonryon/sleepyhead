@@ -140,8 +140,9 @@ public class MinesweeperController implements Initializable {
                 break;
             case Bomb:
                 button.setStyle("-fx-background-color: #d6d6d6");
-                setImage(button, "./View/img/mine.png");
-                setImage(resetButton, "./View/img/booo.png");
+                button.setText("x");
+//                setImage(button, "./View/img/mine.png");
+//                setImage(resetButton, "./View/img/booo.png");
                 break;
             case Blank:
                 button.setStyle("-fx-background-color: #d6d6d6");
