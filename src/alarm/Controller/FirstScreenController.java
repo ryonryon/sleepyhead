@@ -1,5 +1,6 @@
 package alarm.Controller;
 
+import alarm.IMediaPlayerController;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -180,6 +181,8 @@ public class FirstScreenController implements Initializable, OnCompleteSettingAl
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/gameSelector.fxml"));
             Parent parent = loader.load();
+            IMediaPlayerController controller = loader.getController();
+            controller.setMediaPlayer(mediaPlayer);
             Stage stage = new Stage();
             stage.setScene(new Scene(parent));
             stage.initStyle(StageStyle.UNDECORATED);

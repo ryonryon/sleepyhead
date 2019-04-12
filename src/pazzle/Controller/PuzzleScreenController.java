@@ -118,13 +118,11 @@ public class PuzzleScreenController implements Initializable, IMediaPlayerContro
 
             // todo: stop the alarm
             System.out.println("You Win");
+        } else {
+
             mediaPlayer.stop();
             Stage stage = (Stage) x0y0.getScene().getWindow();
             stage.close();
         }
-
-
     }
-
-
 }
