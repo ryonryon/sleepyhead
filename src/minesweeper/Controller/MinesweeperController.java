@@ -41,6 +41,7 @@ public class MinesweeperController implements Initializable, IMediaPlayerControl
     private Button[][] grid;
 
     private boolean isFlagOn = false;
+    private boolean isSmile = true;
 
 
     @Override
@@ -65,7 +66,7 @@ public class MinesweeperController implements Initializable, IMediaPlayerControl
         refreshScreen();
     }
 
-
+    @FXML
     public void clicked(ActionEvent actionEvent) {
 
         String buttonId = ((Button) actionEvent.getSource()).getId();
@@ -84,6 +85,7 @@ public class MinesweeperController implements Initializable, IMediaPlayerControl
 
 
     private void refreshScreen() {
+
         for (int i = 0; i <= 9; i++) {
 
             for (int j = 0; j <= 9; j++) {
@@ -93,61 +95,67 @@ public class MinesweeperController implements Initializable, IMediaPlayerControl
                 setButton(grid[i][j], status, value);
             }
         }
+
+        if (isSmile) {
+            resetButton.getStyleClass().add("button-face-smile");
+        } else {
+            resetButton.getStyleClass().add("button-face-booo");
+        }
     }
 
     private void setButton(Button button, BoxValueStatus.BoxStatus boxStatus, BoxValueStatus.BoxValue boxValue) {
 
-//        switch (boxStatus) {
-//            case Opened:
-        setValue(button, boxValue);
-        button.setStyle("-fx-background-color: #d6d6d6");
-//                break;
-//            case flagged:
-//                setImage(button,"./View/img/flag.png");
-//                break;
-//            case Close:
-//                button.setText("");
-//                setImage(button,"");
-//                button.setStyle("-fx-background-color: #dadada");
-//                break;
-//        }
+        switch (boxStatus) {
+            case Opened:
+                setValue(button, boxValue);
+                button.getStyleClass().add("gridButton-closed");
+                break;
+            case flagged:
+                setImage(button,"../../minesweeper/View/img/flag2.png");
+                button.getStyleClass().add("gridButton-closed");
+                break;
+            case Close:
+                setImage(button, "../../minesweeper/View/img/blank.png");
+                button.getStyleClass().add("gridButton-closed");
+                break;
+        }
     }
 
     private void setValue(Button button, BoxValueStatus.BoxValue boxValue) {
 
         switch (boxValue) {
             case Number_1:
-                button.setText("1");
+                setImage(button, "../../minesweeper/View/img/1.png");
                 break;
             case Number_2:
-                button.setText("2");
+                setImage(button, "../../minesweeper/View/img/2.png");
                 break;
             case Number_3:
-                button.setText("3");
+                setImage(button, "../../minesweeper/View/img/3.png");
                 break;
             case Number_4:
-                button.setText("4");
+                setImage(button, "../../minesweeper/View/img/4.png");
                 break;
             case Number_5:
-                button.setText("5");
+                setImage(button, "../../minesweeper/View/img/5.png");
                 break;
             case Number_6:
-                button.setText("6");
+                setImage(button, "../../minesweeper/View/img/6.png");
                 break;
             case Number_7:
-                button.setText("7");
+                setImage(button, "../../minesweeper/View/img/7.png");
                 break;
             case Number_8:
-                button.setText("8");
+                setImage(button, "../../minesweeper/View/img/8.png");
                 break;
             case Bomb:
                 button.setStyle("-fx-background-color: #d6d6d6");
-                button.setText("x");
-//                setImage(button, "./View/img/mine.png");
-//                setImage(resetButton, "./View/img/booo.png");
+                setImage(button, "../../minesweeper/View/img/bomb.png");
+                isSmile = false;
                 break;
             case Blank:
                 button.setStyle("-fx-background-color: #d6d6d6");
+                setImage(button, "../../minesweeper/View/img/blank.png");
                 break;
         }
     }
@@ -160,6 +168,7 @@ public class MinesweeperController implements Initializable, IMediaPlayerControl
     }
 
     // when the flag button clicked
+    @FXML
     public void flagOn() {
 
         minesweeper.toggleButtonType();
@@ -173,12 +182,15 @@ public class MinesweeperController implements Initializable, IMediaPlayerControl
     }
 
     // when the face button clicked
+    @FXML
     public void resetGame() {
 
         minesweeper.restartMinesweeper(PANEL_SIZE, PANEL_SIZE);
-        setImage(resetButton, "./View/img/smiley.png");
+        if (!isSmile) {
+            resetButton.setStyle("-fx-border-color: #dadada;");
+            isSmile = true;
+        }
         refreshScreen();
-
     }
 
     private MediaPlayer mediaPlayer;

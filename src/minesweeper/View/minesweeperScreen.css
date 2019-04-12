@@ -1,9 +1,16 @@
 
-.gridButton {
+.gridButton-closed {
     -fx-pref-width: 42px;
     -fx-pref-height: 42px;
     -fx-background-color: #e7e7e7;
     -fx-border-color: #dadada;
+}
+
+.gridButton-open {
+    -fx-pref-width: 42px;
+    -fx-pref-height: 42px;
+    -fx-background-color: #e7e7e7;
+    -fx-border-color: #d6d6d6;
 }
 
 .button:hover {
@@ -17,8 +24,15 @@
     -fx-background-radius: 30;
 }
 
-.button-face {
+.button-face-smile {
     -fx-graphic: url("./img/smiley.png");
+    -fx-pref-width: 45px;
+    -fx-pref-height: 45px;
+    -fx-background-radius: 15;
+}
+
+.button-face-booo {
+    -fx-graphic: url("./img/booo.png");
     -fx-pref-width: 45px;
     -fx-pref-height: 45px;
     -fx-background-radius: 15;
