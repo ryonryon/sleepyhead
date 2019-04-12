@@ -58,6 +58,9 @@ public class MinesweeperController implements Initializable {
                 {x8y0, x8y1, x8y2, x8y3, x8y4, x8y5, x8y6, x8y7, x8y8, x8y9},
                 {x9y0, x9y1, x9y2, x9y3, x9y4, x9y5, x9y6, x9y7, x9y8, x9y9},
         };
+
+        // todo: for test
+        refreshScreen();
     }
 
 
@@ -92,20 +95,20 @@ public class MinesweeperController implements Initializable {
 
     private void setButton(Button button, BoxValueStatus.BoxStatus boxStatus, BoxValueStatus.BoxValue boxValue) {
 
-        switch (boxStatus) {
-            case Opened:
+//        switch (boxStatus) {
+//            case Opened:
                 setValue(button, boxValue);
                 button.setStyle("-fx-background-color: #d6d6d6");
-                break;
-            case flagged:
-                setImage(button,"./View/img/flag.png");
-                break;
-            case Close:
-                button.setText("");
-                setImage(button,"");
-                button.setStyle("-fx-background-color: #dadada");
-                break;
-        }
+//                break;
+//            case flagged:
+//                setImage(button,"./View/img/flag.png");
+//                break;
+//            case Close:
+//                button.setText("");
+//                setImage(button,"");
+//                button.setStyle("-fx-background-color: #dadada");
+//                break;
+//        }
     }
 
     private void setValue(Button button, BoxValueStatus.BoxValue boxValue) {
